@@ -1,10 +1,13 @@
 using KennethKyleDeLunaProject2.Datatier;
+using KennethKyleDeLunaProject2.Model;
+using KennethKyleDeLunaProject2;
 
 namespace KennethKyleDeLunaProject2
 {
     public partial class gameForm : Form
     {
         private readonly DictionaryLoader _dictionaryLoader = new DictionaryLoader();
+        private GameRound _currentRound;
         private int _gameTimeInSeconds = 60;
         private int _timeRemainingInSeconds = 60;
         private int _score = 0;
@@ -66,11 +69,24 @@ namespace KennethKyleDeLunaProject2
         private void startRound()
         {
             _isRoundActive = true;
+            _currentRound = new GameRound
+            {
+                RoundScore = 0
+            };
+            _timeRemainingInSeconds = _gameTimeInSeconds;
+            inputControlsActive(true);
             gameTimer.Start();
         }
 
         private void endRound()
         {
+            gameTimer.Stop();
+            _isRoundActive = false;
+            inputControlsActive(false);
+            using (var summaryForm = new RoundSummaryForm(_currentRound))
+            {
+                summaryForm.ShowDialog(this);
+            }
 
         }
 
@@ -114,16 +130,7 @@ namespace KennethKyleDeLunaProject2
             if (_isFirstClick)
             {
                 _isFirstClick = false;
-                letterButton1.Enabled = true;
-                letterButton2.Enabled = true;
-                letterButton3.Enabled = true;
-                letterButton4.Enabled = true;
-                letterButton5.Enabled = true;
-                letterButton6.Enabled = true;
-                letterButton7.Enabled = true;
-                addButton.Enabled = true;
-                undoButton.Enabled = true;
-                clearButton.Enabled = true;
+                inputControlsActive(true);
                 twistButton.Text = "TWIST!";
                 startRound();
             }
@@ -142,6 +149,24 @@ namespace KennethKyleDeLunaProject2
         private void clearButton_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void inputControlsActive(bool isActive)
+        {
+            letterButton1.Enabled = isActive;
+            letterButton2.Enabled = isActive;
+            letterButton3.Enabled = isActive;
+            letterButton4.Enabled = isActive;
+            letterButton5.Enabled = isActive;
+            letterButton6.Enabled = isActive;
+            letterButton7.Enabled = isActive;
+            addButton.Enabled = isActive;
+            undoButton.Enabled = isActive;
+            clearButton.Enabled = isActive;
+        }
+        private void newGameToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            startRound();
         }
     }
 }

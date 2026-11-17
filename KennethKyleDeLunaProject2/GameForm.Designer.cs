@@ -200,6 +200,7 @@
             // 
             newGameToolStripMenuItem.Name = "newGameToolStripMenuItem";
             resources.ApplyResources(newGameToolStripMenuItem, "newGameToolStripMenuItem");
+            newGameToolStripMenuItem.Click += newGameToolStripMenuItem_Click;
             // 
             // timeToolStripMenuItem
             // 

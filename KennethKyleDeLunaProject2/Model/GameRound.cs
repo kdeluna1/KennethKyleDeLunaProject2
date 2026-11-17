@@ -4,7 +4,8 @@ using System.Text;
 
 namespace KennethKyleDeLunaProject2.Model
 {
-    internal class GameRound
+    public class GameRound
     {
+        public int RoundScore { get; set; }
     }
 }
