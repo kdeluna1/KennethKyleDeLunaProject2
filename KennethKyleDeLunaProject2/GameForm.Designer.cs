@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(gameForm));
             letterButton1 = new Button();
             lettersGroupBox = new GroupBox();
@@ -58,6 +59,7 @@
             exportHighToolStripMenuItem = new ToolStripMenuItem();
             exportScoresToolStripMenuItem = new ToolStripMenuItem();
             scoreLabel = new Label();
+            gameTimer = new System.Windows.Forms.Timer(components);
             lettersGroupBox.SuspendLayout();
             groupBox1.SuspendLayout();
             menuStrip1.SuspendLayout();
@@ -251,6 +253,11 @@
             resources.ApplyResources(scoreLabel, "scoreLabel");
             scoreLabel.Name = "scoreLabel";
             // 
+            // gameTimer
+            // 
+            gameTimer.Interval = 1000;
+            gameTimer.Tick += gameTimer_Tick;
+            // 
             // gameForm
             // 
             resources.ApplyResources(this, "$this");
@@ -306,5 +313,6 @@
         private ToolStripMenuItem exportHighToolStripMenuItem;
         private ToolStripMenuItem exportScoresToolStripMenuItem;
         private Label scoreLabel;
+        private System.Windows.Forms.Timer gameTimer;
     }
 }

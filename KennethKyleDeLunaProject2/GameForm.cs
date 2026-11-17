@@ -15,6 +15,7 @@ namespace KennethKyleDeLunaProject2
         {
             InitializeComponent();
             LoadDictionary();
+            gameTimer.Stop();
 
         }
 
@@ -23,7 +24,7 @@ namespace KennethKyleDeLunaProject2
             try
             {
                 string dictionaryFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "dictionary.json");
-                        _dictionaryLoader.LoadDictionary(dictionaryFilePath);
+                _dictionaryLoader.LoadDictionary(dictionaryFilePath);
             }
             catch (Exception ex)
             {
@@ -36,18 +37,38 @@ namespace KennethKyleDeLunaProject2
         {
             int mins = seconds / 60;
             int secs = seconds % 60;
-            return $"{mins:D2}:{secs:D2}"; 
+            return $"Time: {mins:D2}:{secs:D2}";
         }
 
         private void gameTimer_Tick(object sender, EventArgs e)
         {
+            if (!_isRoundActive)
+            {
+                return;
+            }
 
+            _timeRemainingInSeconds--;
+            UpdateTimerDisplay();
+
+            if (_timeRemainingInSeconds <= 0)
+            {
+                gameTimer.Stop();
+                endRound();
+            }
+        }
+
+        private void UpdateTimerDisplay()
+        {
+            timerLabel.Text = gameTimerFormat(_timeRemainingInSeconds);
+            timerLabel.ForeColor = _timeRemainingInSeconds <= 10 ? Color.Red : Color.Black;
         }
 
         private void startRound()
         {
-
+            _isRoundActive = true;
+            gameTimer.Start();
         }
+
         private void endRound()
         {
 
@@ -90,7 +111,22 @@ namespace KennethKyleDeLunaProject2
 
         private void twistButton_Click(object sender, EventArgs e)
         {
-
+            if (_isFirstClick)
+            {
+                _isFirstClick = false;
+                letterButton1.Enabled = true;
+                letterButton2.Enabled = true;
+                letterButton3.Enabled = true;
+                letterButton4.Enabled = true;
+                letterButton5.Enabled = true;
+                letterButton6.Enabled = true;
+                letterButton7.Enabled = true;
+                addButton.Enabled = true;
+                undoButton.Enabled = true;
+                clearButton.Enabled = true;
+                twistButton.Text = "TWIST!";
+                startRound();
+            }
         }
 
         private void addButton_Click(object sender, EventArgs e)
