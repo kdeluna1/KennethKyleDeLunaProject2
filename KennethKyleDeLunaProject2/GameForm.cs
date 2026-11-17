@@ -5,6 +5,12 @@ namespace KennethKyleDeLunaProject2
     public partial class gameForm : Form
     {
         private readonly DictionaryLoader _dictionaryLoader = new DictionaryLoader();
+        private int _gameTimeInSeconds = 60;
+        private int _timeRemainingInSeconds = 60;
+        private int _score = 0;
+        private bool _isRoundActive = false;
+        private bool _isFirstClick = true;
+
         public gameForm()
         {
             InitializeComponent();
@@ -24,6 +30,27 @@ namespace KennethKyleDeLunaProject2
                 MessageBox.Show("Error loading dictionary: " + ex.Message, "Loading Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
+        }
+
+        private string gameTimerFormat(int seconds)
+        {
+            int mins = seconds / 60;
+            int secs = seconds % 60;
+            return $"{mins:D2}:{secs:D2}"; 
+        }
+
+        private void gameTimer_Tick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void startRound()
+        {
+
+        }
+        private void endRound()
+        {
+
         }
 
         private void letterButton1_Click(object sender, EventArgs e)

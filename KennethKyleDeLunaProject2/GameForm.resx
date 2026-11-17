@@ -117,6 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="letterButton1.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="letterButton1.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 27.75pt, style=Bold</value>
@@ -131,7 +135,6 @@
   <data name="letterButton1.Size" type="System.Drawing.Size, System.Drawing">
     <value>70, 67</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="letterButton1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
@@ -150,6 +153,21 @@
   <data name="&gt;&gt;letterButton1.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
+  <data name="twistButton.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 12pt, style=Bold</value>
+  </data>
+  <data name="twistButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>221, 120</value>
+  </data>
+  <data name="twistButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>124, 30</value>
+  </data>
+  <data name="twistButton.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="twistButton.Text" xml:space="preserve">
+    <value>TWIST!</value>
+  </data>
   <data name="&gt;&gt;twistButton.Name" xml:space="preserve">
     <value>twistButton</value>
   </data>
@@ -161,6 +179,27 @@
   </data>
   <data name="&gt;&gt;twistButton.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="letterButton7.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="letterButton7.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 27.75pt, style=Bold</value>
+  </data>
+  <data name="letterButton7.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="letterButton7.Location" type="System.Drawing.Point, System.Drawing">
+    <value>476, 35</value>
+  </data>
+  <data name="letterButton7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>70, 67</value>
+  </data>
+  <data name="letterButton7.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="letterButton7.Text" xml:space="preserve">
+    <value>letterButton7</value>
   </data>
   <data name="&gt;&gt;letterButton7.Name" xml:space="preserve">
     <value>letterButton7</value>
@@ -174,6 +213,27 @@
   <data name="&gt;&gt;letterButton7.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <data name="letterButton6.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="letterButton6.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 27.75pt, style=Bold</value>
+  </data>
+  <data name="letterButton6.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="letterButton6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>400, 35</value>
+  </data>
+  <data name="letterButton6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>70, 67</value>
+  </data>
+  <data name="letterButton6.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="letterButton6.Text" xml:space="preserve">
+    <value>letterButton6</value>
+  </data>
   <data name="&gt;&gt;letterButton6.Name" xml:space="preserve">
     <value>letterButton6</value>
   </data>
@@ -185,6 +245,27 @@
   </data>
   <data name="&gt;&gt;letterButton6.ZOrder" xml:space="preserve">
     <value>2</value>
+  </data>
+  <data name="letterButton5.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="letterButton5.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 27.75pt, style=Bold</value>
+  </data>
+  <data name="letterButton5.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="letterButton5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>324, 35</value>
+  </data>
+  <data name="letterButton5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>70, 67</value>
+  </data>
+  <data name="letterButton5.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="letterButton5.Text" xml:space="preserve">
+    <value>letterButton5</value>
   </data>
   <data name="&gt;&gt;letterButton5.Name" xml:space="preserve">
     <value>letterButton5</value>
@@ -198,6 +279,27 @@
   <data name="&gt;&gt;letterButton5.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
+  <data name="letterButton4.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="letterButton4.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 27.75pt, style=Bold</value>
+  </data>
+  <data name="letterButton4.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="letterButton4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>248, 35</value>
+  </data>
+  <data name="letterButton4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>70, 67</value>
+  </data>
+  <data name="letterButton4.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="letterButton4.Text" xml:space="preserve">
+    <value>letterButton4</value>
+  </data>
   <data name="&gt;&gt;letterButton4.Name" xml:space="preserve">
     <value>letterButton4</value>
   </data>
@@ -210,6 +312,27 @@
   <data name="&gt;&gt;letterButton4.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
+  <data name="letterButton3.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="letterButton3.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 27.75pt, style=Bold</value>
+  </data>
+  <data name="letterButton3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="letterButton3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>172, 35</value>
+  </data>
+  <data name="letterButton3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>70, 67</value>
+  </data>
+  <data name="letterButton3.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="letterButton3.Text" xml:space="preserve">
+    <value>letterButton3</value>
+  </data>
   <data name="&gt;&gt;letterButton3.Name" xml:space="preserve">
     <value>letterButton3</value>
   </data>
@@ -221,6 +344,27 @@
   </data>
   <data name="&gt;&gt;letterButton3.ZOrder" xml:space="preserve">
     <value>5</value>
+  </data>
+  <data name="letterButton2.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="letterButton2.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 27.75pt, style=Bold</value>
+  </data>
+  <data name="letterButton2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="letterButton2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>96, 35</value>
+  </data>
+  <data name="letterButton2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>70, 67</value>
+  </data>
+  <data name="letterButton2.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="letterButton2.Text" xml:space="preserve">
+    <value>letterButton2</value>
   </data>
   <data name="&gt;&gt;letterButton2.Name" xml:space="preserve">
     <value>letterButton2</value>
@@ -261,212 +405,8 @@
   <data name="&gt;&gt;lettersGroupBox.ZOrder" xml:space="preserve">
     <value>8</value>
   </data>
-  <data name="twistButton.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 12pt, style=Bold</value>
-  </data>
-  <data name="twistButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>221, 120</value>
-  </data>
-  <data name="twistButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>124, 30</value>
-  </data>
-  <data name="twistButton.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="twistButton.Text" xml:space="preserve">
-    <value>TWIST!</value>
-  </data>
-  <data name="&gt;&gt;twistButton.Name" xml:space="preserve">
-    <value>twistButton</value>
-  </data>
-  <data name="&gt;&gt;twistButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;twistButton.Parent" xml:space="preserve">
-    <value>lettersGroupBox</value>
-  </data>
-  <data name="&gt;&gt;twistButton.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="letterButton7.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 27.75pt, style=Bold</value>
-  </data>
-  <data name="letterButton7.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="letterButton7.Location" type="System.Drawing.Point, System.Drawing">
-    <value>476, 35</value>
-  </data>
-  <data name="letterButton7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>70, 67</value>
-  </data>
-  <data name="letterButton7.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="letterButton7.Text" xml:space="preserve">
-    <value>letterButton7</value>
-  </data>
-  <data name="&gt;&gt;letterButton7.Name" xml:space="preserve">
-    <value>letterButton7</value>
-  </data>
-  <data name="&gt;&gt;letterButton7.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;letterButton7.Parent" xml:space="preserve">
-    <value>lettersGroupBox</value>
-  </data>
-  <data name="&gt;&gt;letterButton7.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="letterButton6.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 27.75pt, style=Bold</value>
-  </data>
-  <data name="letterButton6.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="letterButton6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>400, 35</value>
-  </data>
-  <data name="letterButton6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>70, 67</value>
-  </data>
-  <data name="letterButton6.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="letterButton6.Text" xml:space="preserve">
-    <value>letterButton6</value>
-  </data>
-  <data name="&gt;&gt;letterButton6.Name" xml:space="preserve">
-    <value>letterButton6</value>
-  </data>
-  <data name="&gt;&gt;letterButton6.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;letterButton6.Parent" xml:space="preserve">
-    <value>lettersGroupBox</value>
-  </data>
-  <data name="&gt;&gt;letterButton6.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="letterButton5.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 27.75pt, style=Bold</value>
-  </data>
-  <data name="letterButton5.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="letterButton5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>324, 35</value>
-  </data>
-  <data name="letterButton5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>70, 67</value>
-  </data>
-  <data name="letterButton5.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="letterButton5.Text" xml:space="preserve">
-    <value>letterButton5</value>
-  </data>
-  <data name="&gt;&gt;letterButton5.Name" xml:space="preserve">
-    <value>letterButton5</value>
-  </data>
-  <data name="&gt;&gt;letterButton5.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;letterButton5.Parent" xml:space="preserve">
-    <value>lettersGroupBox</value>
-  </data>
-  <data name="&gt;&gt;letterButton5.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="letterButton4.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 27.75pt, style=Bold</value>
-  </data>
-  <data name="letterButton4.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="letterButton4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>248, 35</value>
-  </data>
-  <data name="letterButton4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>70, 67</value>
-  </data>
-  <data name="letterButton4.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="letterButton4.Text" xml:space="preserve">
-    <value>letterButton4</value>
-  </data>
-  <data name="&gt;&gt;letterButton4.Name" xml:space="preserve">
-    <value>letterButton4</value>
-  </data>
-  <data name="&gt;&gt;letterButton4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;letterButton4.Parent" xml:space="preserve">
-    <value>lettersGroupBox</value>
-  </data>
-  <data name="&gt;&gt;letterButton4.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="letterButton3.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 27.75pt, style=Bold</value>
-  </data>
-  <data name="letterButton3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="letterButton3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>172, 35</value>
-  </data>
-  <data name="letterButton3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>70, 67</value>
-  </data>
-  <data name="letterButton3.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="letterButton3.Text" xml:space="preserve">
-    <value>letterButton3</value>
-  </data>
-  <data name="&gt;&gt;letterButton3.Name" xml:space="preserve">
-    <value>letterButton3</value>
-  </data>
-  <data name="&gt;&gt;letterButton3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;letterButton3.Parent" xml:space="preserve">
-    <value>lettersGroupBox</value>
-  </data>
-  <data name="&gt;&gt;letterButton3.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="letterButton2.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 27.75pt, style=Bold</value>
-  </data>
-  <data name="letterButton2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="letterButton2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>96, 35</value>
-  </data>
-  <data name="letterButton2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>70, 67</value>
-  </data>
-  <data name="letterButton2.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="letterButton2.Text" xml:space="preserve">
-    <value>letterButton2</value>
-  </data>
-  <data name="&gt;&gt;letterButton2.Name" xml:space="preserve">
-    <value>letterButton2</value>
-  </data>
-  <data name="&gt;&gt;letterButton2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;letterButton2.Parent" xml:space="preserve">
-    <value>lettersGroupBox</value>
-  </data>
-  <data name="&gt;&gt;letterButton2.ZOrder" xml:space="preserve">
-    <value>6</value>
+  <data name="addButton.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="addButton.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 12pt, style=Bold</value>
@@ -498,6 +438,9 @@
   <data name="&gt;&gt;addButton.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
+  <data name="undoButton.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="undoButton.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 12pt, style=Bold</value>
   </data>
@@ -527,6 +470,9 @@
   </data>
   <data name="&gt;&gt;undoButton.ZOrder" xml:space="preserve">
     <value>6</value>
+  </data>
+  <data name="clearButton.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="clearButton.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 12pt</value>
@@ -582,6 +528,18 @@
   <data name="&gt;&gt;wordTextBox.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
+  <data name="validWordsListBox.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9.75pt</value>
+  </data>
+  <data name="validWordsListBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 28</value>
+  </data>
+  <data name="validWordsListBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>262, 293</value>
+  </data>
+  <data name="validWordsListBox.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
   <data name="&gt;&gt;validWordsListBox.Name" xml:space="preserve">
     <value>validWordsListBox</value>
   </data>
@@ -620,30 +578,6 @@
   </data>
   <data name="&gt;&gt;groupBox1.ZOrder" xml:space="preserve">
     <value>3</value>
-  </data>
-  <data name="validWordsListBox.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9.75pt</value>
-  </data>
-  <data name="validWordsListBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 28</value>
-  </data>
-  <data name="validWordsListBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>262, 293</value>
-  </data>
-  <data name="validWordsListBox.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;validWordsListBox.Name" xml:space="preserve">
-    <value>validWordsListBox</value>
-  </data>
-  <data name="&gt;&gt;validWordsListBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;validWordsListBox.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;validWordsListBox.ZOrder" xml:space="preserve">
-    <value>0</value>
   </data>
   <data name="gamePointersLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -708,6 +642,66 @@
   <metadata name="menuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <data name="newGameToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>132, 22</value>
+  </data>
+  <data name="newGameToolStripMenuItem.Text" xml:space="preserve">
+    <value>New Game</value>
+  </data>
+  <data name="gameToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>50, 20</value>
+  </data>
+  <data name="gameToolStripMenuItem.Text" xml:space="preserve">
+    <value>Game</value>
+  </data>
+  <data name="oneMinuteToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>160, 22</value>
+  </data>
+  <data name="oneMinuteToolStripMenuItem.Text" xml:space="preserve">
+    <value>1 Minute (60s)</value>
+  </data>
+  <data name="twoMinutesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>160, 22</value>
+  </data>
+  <data name="twoMinutesToolStripMenuItem.Text" xml:space="preserve">
+    <value>2 Minutes (120s)</value>
+  </data>
+  <data name="threeMinutesToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>160, 22</value>
+  </data>
+  <data name="threeMinutesToolStripMenuItem1.Text" xml:space="preserve">
+    <value>3 Minutes (180s)</value>
+  </data>
+  <data name="timeToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>46, 20</value>
+  </data>
+  <data name="timeToolStripMenuItem.Text" xml:space="preserve">
+    <value>Time</value>
+  </data>
+  <data name="scoreToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>165, 22</value>
+  </data>
+  <data name="scoreToolStripMenuItem1.Text" xml:space="preserve">
+    <value>View High Scores</value>
+  </data>
+  <data name="exportHighToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>165, 22</value>
+  </data>
+  <data name="exportHighToolStripMenuItem.Text" xml:space="preserve">
+    <value>Export Score</value>
+  </data>
+  <data name="exportScoresToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>165, 22</value>
+  </data>
+  <data name="exportScoresToolStripMenuItem.Text" xml:space="preserve">
+    <value>Reset Scores</value>
+  </data>
+  <data name="scoreToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>48, 20</value>
+  </data>
+  <data name="scoreToolStripMenuItem.Text" xml:space="preserve">
+    <value>Score</value>
+  </data>
   <data name="menuStrip1.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
@@ -731,66 +725,6 @@
   </data>
   <data name="&gt;&gt;menuStrip1.ZOrder" xml:space="preserve">
     <value>9</value>
-  </data>
-  <data name="gameToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>50, 20</value>
-  </data>
-  <data name="gameToolStripMenuItem.Text" xml:space="preserve">
-    <value>Game</value>
-  </data>
-  <data name="newGameToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>132, 22</value>
-  </data>
-  <data name="newGameToolStripMenuItem.Text" xml:space="preserve">
-    <value>New Game</value>
-  </data>
-  <data name="timeToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>46, 20</value>
-  </data>
-  <data name="timeToolStripMenuItem.Text" xml:space="preserve">
-    <value>Time</value>
-  </data>
-  <data name="oneMinuteToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
-  </data>
-  <data name="oneMinuteToolStripMenuItem.Text" xml:space="preserve">
-    <value>1 Minute (60s)</value>
-  </data>
-  <data name="twoMinutesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
-  </data>
-  <data name="twoMinutesToolStripMenuItem.Text" xml:space="preserve">
-    <value>2 Minutes (120s)</value>
-  </data>
-  <data name="threeMinutesToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
-  </data>
-  <data name="threeMinutesToolStripMenuItem1.Text" xml:space="preserve">
-    <value>3 Minutes (180s)</value>
-  </data>
-  <data name="scoreToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>48, 20</value>
-  </data>
-  <data name="scoreToolStripMenuItem.Text" xml:space="preserve">
-    <value>Score</value>
-  </data>
-  <data name="scoreToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>165, 22</value>
-  </data>
-  <data name="scoreToolStripMenuItem1.Text" xml:space="preserve">
-    <value>View High Scores</value>
-  </data>
-  <data name="exportHighToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>165, 22</value>
-  </data>
-  <data name="exportHighToolStripMenuItem.Text" xml:space="preserve">
-    <value>Export Score</value>
-  </data>
-  <data name="exportScoresToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>165, 22</value>
-  </data>
-  <data name="exportScoresToolStripMenuItem.Text" xml:space="preserve">
-    <value>Reset Scores</value>
   </data>
   <data name="scoreLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
