@@ -1,6 +1,6 @@
 ﻿namespace KennethKyleDeLunaProject2
 {
-    partial class Form1
+    partial class gameForm
     {
         /// <summary>
         ///  Required designer variable.
@@ -28,10 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(gameForm));
+            SuspendLayout();
+            // 
+            // gameForm
+            // 
+            resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Text = "Form1";
+            Name = "gameForm";
+            ResumeLayout(false);
         }
 
         #endregion
