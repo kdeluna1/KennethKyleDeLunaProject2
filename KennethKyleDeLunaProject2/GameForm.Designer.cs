@@ -29,19 +29,19 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(gameForm));
-            button1 = new Button();
+            letterButton1 = new Button();
             lettersGroupBox = new GroupBox();
-            button8 = new Button();
-            button7 = new Button();
-            button6 = new Button();
-            button5 = new Button();
-            button4 = new Button();
-            button3 = new Button();
-            button2 = new Button();
+            twistButton = new Button();
+            letterButton7 = new Button();
+            letterButton6 = new Button();
+            letterButton5 = new Button();
+            letterButton4 = new Button();
+            letterButton3 = new Button();
+            letterButton2 = new Button();
             addButton = new Button();
             undoButton = new Button();
             clearButton = new Button();
-            textBox1 = new TextBox();
+            wordTextBox = new TextBox();
             groupBox1 = new GroupBox();
             validWordsListBox = new ListBox();
             gamePointersLabel = new Label();
@@ -63,91 +63,101 @@
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
-            // button1
+            // letterButton1
             // 
-            resources.ApplyResources(button1, "button1");
-            button1.Name = "button1";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            resources.ApplyResources(letterButton1, "letterButton1");
+            letterButton1.Name = "letterButton1";
+            letterButton1.UseVisualStyleBackColor = true;
+            letterButton1.Click += letterButton1_Click;
             // 
             // lettersGroupBox
             // 
-            lettersGroupBox.Controls.Add(button8);
-            lettersGroupBox.Controls.Add(button7);
-            lettersGroupBox.Controls.Add(button6);
-            lettersGroupBox.Controls.Add(button5);
-            lettersGroupBox.Controls.Add(button4);
-            lettersGroupBox.Controls.Add(button3);
-            lettersGroupBox.Controls.Add(button2);
-            lettersGroupBox.Controls.Add(button1);
+            lettersGroupBox.Controls.Add(twistButton);
+            lettersGroupBox.Controls.Add(letterButton7);
+            lettersGroupBox.Controls.Add(letterButton6);
+            lettersGroupBox.Controls.Add(letterButton5);
+            lettersGroupBox.Controls.Add(letterButton4);
+            lettersGroupBox.Controls.Add(letterButton3);
+            lettersGroupBox.Controls.Add(letterButton2);
+            lettersGroupBox.Controls.Add(letterButton1);
             resources.ApplyResources(lettersGroupBox, "lettersGroupBox");
             lettersGroupBox.Name = "lettersGroupBox";
             lettersGroupBox.TabStop = false;
             // 
-            // button8
+            // twistButton
             // 
-            resources.ApplyResources(button8, "button8");
-            button8.Name = "button8";
-            button8.UseVisualStyleBackColor = true;
+            resources.ApplyResources(twistButton, "twistButton");
+            twistButton.Name = "twistButton";
+            twistButton.UseVisualStyleBackColor = true;
+            twistButton.Click += twistButton_Click;
             // 
-            // button7
+            // letterButton7
             // 
-            resources.ApplyResources(button7, "button7");
-            button7.Name = "button7";
-            button7.UseVisualStyleBackColor = true;
+            resources.ApplyResources(letterButton7, "letterButton7");
+            letterButton7.Name = "letterButton7";
+            letterButton7.UseVisualStyleBackColor = true;
+            letterButton7.Click += letterButton7_Click;
             // 
-            // button6
+            // letterButton6
             // 
-            resources.ApplyResources(button6, "button6");
-            button6.Name = "button6";
-            button6.UseVisualStyleBackColor = true;
+            resources.ApplyResources(letterButton6, "letterButton6");
+            letterButton6.Name = "letterButton6";
+            letterButton6.UseVisualStyleBackColor = true;
+            letterButton6.Click += letterButton6_Click;
             // 
-            // button5
+            // letterButton5
             // 
-            resources.ApplyResources(button5, "button5");
-            button5.Name = "button5";
-            button5.UseVisualStyleBackColor = true;
+            resources.ApplyResources(letterButton5, "letterButton5");
+            letterButton5.Name = "letterButton5";
+            letterButton5.UseVisualStyleBackColor = true;
+            letterButton5.Click += letterButton5_Click;
             // 
-            // button4
+            // letterButton4
             // 
-            resources.ApplyResources(button4, "button4");
-            button4.Name = "button4";
-            button4.UseVisualStyleBackColor = true;
+            resources.ApplyResources(letterButton4, "letterButton4");
+            letterButton4.Name = "letterButton4";
+            letterButton4.UseVisualStyleBackColor = true;
+            letterButton4.Click += letterButton4_Click;
             // 
-            // button3
+            // letterButton3
             // 
-            resources.ApplyResources(button3, "button3");
-            button3.Name = "button3";
-            button3.UseVisualStyleBackColor = true;
+            resources.ApplyResources(letterButton3, "letterButton3");
+            letterButton3.Name = "letterButton3";
+            letterButton3.UseVisualStyleBackColor = true;
+            letterButton3.Click += letterButton3_Click;
             // 
-            // button2
+            // letterButton2
             // 
-            resources.ApplyResources(button2, "button2");
-            button2.Name = "button2";
-            button2.UseVisualStyleBackColor = true;
+            resources.ApplyResources(letterButton2, "letterButton2");
+            letterButton2.Name = "letterButton2";
+            letterButton2.UseVisualStyleBackColor = true;
+            letterButton2.Click += letterButton2_Click;
             // 
             // addButton
             // 
             resources.ApplyResources(addButton, "addButton");
             addButton.Name = "addButton";
             addButton.UseVisualStyleBackColor = true;
+            addButton.Click += addButton_Click;
             // 
             // undoButton
             // 
             resources.ApplyResources(undoButton, "undoButton");
             undoButton.Name = "undoButton";
             undoButton.UseVisualStyleBackColor = true;
+            undoButton.Click += undoButton_Click;
             // 
             // clearButton
             // 
             resources.ApplyResources(clearButton, "clearButton");
             clearButton.Name = "clearButton";
             clearButton.UseVisualStyleBackColor = true;
+            clearButton.Click += clearButton_Click;
             // 
-            // textBox1
+            // wordTextBox
             // 
-            resources.ApplyResources(textBox1, "textBox1");
-            textBox1.Name = "textBox1";
+            resources.ApplyResources(wordTextBox, "wordTextBox");
+            wordTextBox.Name = "wordTextBox";
             // 
             // groupBox1
             // 
@@ -249,7 +259,7 @@
             Controls.Add(timerLabel);
             Controls.Add(gamePointersLabel);
             Controls.Add(groupBox1);
-            Controls.Add(textBox1);
+            Controls.Add(wordTextBox);
             Controls.Add(clearButton);
             Controls.Add(undoButton);
             Controls.Add(addButton);
@@ -267,19 +277,19 @@
 
         #endregion
 
-        private Button button1;
+        private Button letterButton1;
         private GroupBox lettersGroupBox;
-        private Button button7;
-        private Button button6;
-        private Button button5;
-        private Button button4;
-        private Button button3;
-        private Button button2;
-        private Button button8;
+        private Button letterButton7;
+        private Button letterButton6;
+        private Button letterButton5;
+        private Button letterButton4;
+        private Button letterButton3;
+        private Button letterButton2;
+        private Button twistButton;
         private Button addButton;
         private Button undoButton;
         private Button clearButton;
-        private TextBox textBox1;
+        private TextBox wordTextBox;
         private GroupBox groupBox1;
         private ListBox validWordsListBox;
         private Label gamePointersLabel;
