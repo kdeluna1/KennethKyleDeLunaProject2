@@ -53,7 +53,7 @@
             timeToolStripMenuItem = new ToolStripMenuItem();
             oneMinuteToolStripMenuItem = new ToolStripMenuItem();
             twoMinutesToolStripMenuItem = new ToolStripMenuItem();
-            threeMinutesToolStripMenuItem1 = new ToolStripMenuItem();
+            threeMinutesToolStripMenuItem = new ToolStripMenuItem();
             scoreToolStripMenuItem = new ToolStripMenuItem();
             scoreToolStripMenuItem1 = new ToolStripMenuItem();
             exportHighToolStripMenuItem = new ToolStripMenuItem();
@@ -153,6 +153,8 @@
             // 
             resources.ApplyResources(wordTextBox, "wordTextBox");
             wordTextBox.Name = "wordTextBox";
+            wordTextBox.KeyPress += wordTextBox_KeyPress;
+            wordTextBox.TextChanged += wordTextBox_Changed;
             // 
             // groupBox1
             // 
@@ -202,7 +204,7 @@
             // 
             // timeToolStripMenuItem
             // 
-            timeToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { oneMinuteToolStripMenuItem, twoMinutesToolStripMenuItem, threeMinutesToolStripMenuItem1 });
+            timeToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { oneMinuteToolStripMenuItem, twoMinutesToolStripMenuItem, threeMinutesToolStripMenuItem });
             timeToolStripMenuItem.Name = "timeToolStripMenuItem";
             resources.ApplyResources(timeToolStripMenuItem, "timeToolStripMenuItem");
             // 
@@ -222,12 +224,12 @@
             resources.ApplyResources(twoMinutesToolStripMenuItem, "twoMinutesToolStripMenuItem");
             twoMinutesToolStripMenuItem.Click += twoMinutesToolStripMenuItem_Click;
             // 
-            // threeMinutesToolStripMenuItem1
+            // threeMinutesToolStripMenuItem
             // 
-            threeMinutesToolStripMenuItem1.CheckOnClick = true;
-            threeMinutesToolStripMenuItem1.Name = "threeMinutesToolStripMenuItem1";
-            resources.ApplyResources(threeMinutesToolStripMenuItem1, "threeMinutesToolStripMenuItem1");
-            threeMinutesToolStripMenuItem1.Click += threeMinutesToolStripMenuItem1_Click;
+            threeMinutesToolStripMenuItem.CheckOnClick = true;
+            threeMinutesToolStripMenuItem.Name = "threeMinutesToolStripMenuItem";
+            resources.ApplyResources(threeMinutesToolStripMenuItem, "threeMinutesToolStripMenuItem");
+            threeMinutesToolStripMenuItem.Click += threeMinutesToolStripMenuItem_Click;
             // 
             // scoreToolStripMenuItem
             // 
@@ -307,7 +309,7 @@
         private ToolStripMenuItem timeToolStripMenuItem;
         private ToolStripMenuItem oneMinuteToolStripMenuItem;
         private ToolStripMenuItem twoMinutesToolStripMenuItem;
-        private ToolStripMenuItem threeMinutesToolStripMenuItem1;
+        private ToolStripMenuItem threeMinutesToolStripMenuItem;
         private ToolStripMenuItem scoreToolStripMenuItem;
         private ToolStripMenuItem scoreToolStripMenuItem1;
         private ToolStripMenuItem exportHighToolStripMenuItem;

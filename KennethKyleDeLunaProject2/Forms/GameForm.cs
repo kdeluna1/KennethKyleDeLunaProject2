@@ -1,5 +1,6 @@
 using KennethKyleDeLunaProject2.Datatier;
 using KennethKyleDeLunaProject2.Model;
+using System.Text;
 
 namespace KennethKyleDeLunaProject2
 {
@@ -311,7 +312,7 @@ namespace KennethKyleDeLunaProject2
             _gameTimeInSeconds = seconds;
             oneMinuteToolStripMenuItem.Checked = (menuItem == oneMinuteToolStripMenuItem);
             twoMinutesToolStripMenuItem.Checked = (menuItem == twoMinutesToolStripMenuItem);
-            threeMinutesToolStripMenuItem1.Checked = (menuItem == threeMinutesToolStripMenuItem1);
+            threeMinutesToolStripMenuItem.Checked = (menuItem == threeMinutesToolStripMenuItem);
             startRound();
         }
         private void oneMinuteToolStripMenuItem_Click(object sender, EventArgs e)
@@ -324,9 +325,64 @@ namespace KennethKyleDeLunaProject2
             setTime(120, twoMinutesToolStripMenuItem);
         }
 
-        private void threeMinutesToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void threeMinutesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            setTime(180, threeMinutesToolStripMenuItem1);
+            setTime(180, threeMinutesToolStripMenuItem);
         }
+
+        private void wordTextBox_KeyPress(object? sender, KeyPressEventArgs e)
+        {
+            if (char.IsControl(e.KeyChar) || char.IsDigit(e.KeyChar) || char.IsWhiteSpace(e.KeyChar))
+            {
+                return;
+            }
+
+            char inputChar = char.ToUpperInvariant(e.KeyChar);
+
+            var availableButton = _letterButtons.FirstOrDefault(lb => char.ToUpperInvariant(lb.Letter) == inputChar && !lb.IsSelected);
+
+            if (availableButton == null)
+            {
+                e.Handled = true;
+            }
+            else
+            {
+                e.KeyChar = inputChar;
+            }
+        }
+
+        private void wordTextBox_Changed(object? sender, EventArgs e)
+        {
+            foreach (var lb in _letterButtons)
+            {
+                lb.IsSelected = false;
+            }
+
+            var validChars = new List<char>();
+
+            foreach (char ch in wordTextBox.Text.ToUpperInvariant())
+            {
+                var match = _letterButtons.FirstOrDefault(
+                    lb => char.ToUpperInvariant(lb.Letter) == ch && !lb.IsSelected);
+
+                if (match != null)
+                {
+                    match.IsSelected = true;
+                    validChars.Add(ch);
+                }
+            }
+
+            string sanitized = new string(validChars.ToArray());
+            if (wordTextBox.Text != sanitized)
+            {
+                int cursor = wordTextBox.SelectionStart;
+                wordTextBox.Text = sanitized;
+                wordTextBox.SelectionStart = Math.Min(cursor, wordTextBox.Text.Length);
+                return;
+            }
+
+            refreshLetterButtons();
+        }
+
     }
 }
