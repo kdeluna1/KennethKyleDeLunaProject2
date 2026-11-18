@@ -139,7 +139,7 @@
     <value>0</value>
   </data>
   <data name="letterButton1.Text" xml:space="preserve">
-    <value>letterButton1</value>
+    <value>T</value>
   </data>
   <data name="&gt;&gt;letterButton1.Name" xml:space="preserve">
     <value>letterButton1</value>
@@ -199,7 +199,7 @@
     <value>6</value>
   </data>
   <data name="letterButton7.Text" xml:space="preserve">
-    <value>letterButton7</value>
+    <value>)</value>
   </data>
   <data name="&gt;&gt;letterButton7.Name" xml:space="preserve">
     <value>letterButton7</value>
@@ -232,7 +232,7 @@
     <value>5</value>
   </data>
   <data name="letterButton6.Text" xml:space="preserve">
-    <value>letterButton6</value>
+    <value>:</value>
   </data>
   <data name="&gt;&gt;letterButton6.Name" xml:space="preserve">
     <value>letterButton6</value>
@@ -265,7 +265,7 @@
     <value>4</value>
   </data>
   <data name="letterButton5.Text" xml:space="preserve">
-    <value>letterButton5</value>
+    <value>T</value>
   </data>
   <data name="&gt;&gt;letterButton5.Name" xml:space="preserve">
     <value>letterButton5</value>
@@ -298,7 +298,7 @@
     <value>3</value>
   </data>
   <data name="letterButton4.Text" xml:space="preserve">
-    <value>letterButton4</value>
+    <value>S</value>
   </data>
   <data name="&gt;&gt;letterButton4.Name" xml:space="preserve">
     <value>letterButton4</value>
@@ -331,7 +331,7 @@
     <value>2</value>
   </data>
   <data name="letterButton3.Text" xml:space="preserve">
-    <value>letterButton3</value>
+    <value>I</value>
   </data>
   <data name="&gt;&gt;letterButton3.Name" xml:space="preserve">
     <value>letterButton3</value>
@@ -364,7 +364,7 @@
     <value>1</value>
   </data>
   <data name="letterButton2.Text" xml:space="preserve">
-    <value>letterButton2</value>
+    <value>W</value>
   </data>
   <data name="&gt;&gt;letterButton2.Name" xml:space="preserve">
     <value>letterButton2</value>

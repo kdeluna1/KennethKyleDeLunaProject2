@@ -1,13 +1,15 @@
 using KennethKyleDeLunaProject2.Datatier;
 using KennethKyleDeLunaProject2.Model;
-using KennethKyleDeLunaProject2;
 
 namespace KennethKyleDeLunaProject2
 {
     public partial class gameForm : Form
     {
         private readonly DictionaryLoader _dictionaryLoader = new DictionaryLoader();
+        private readonly LetterDraw _letterDraw = new LetterDraw();
+        private List<char> _currentLetters = new List<char>();
         private GameRound? _currentRound;
+        private readonly Random _random = new Random();
         private int _gameTimeInSeconds = 60;
         private int _timeRemainingInSeconds = 60;
         private int _score = 0;
@@ -69,6 +71,8 @@ namespace KennethKyleDeLunaProject2
         private void startRound()
         {
             _isRoundActive = true;
+            _currentLetters = _letterDraw.DrawLetters(7);
+            refreshLetterButtons();
             _currentRound = new GameRound
             {
                 RoundScore = 0
@@ -88,6 +92,15 @@ namespace KennethKyleDeLunaProject2
                 summaryForm.ShowDialog(this);
             }
 
+        }
+
+        private void refreshLetterButtons()
+        {
+            var letterButtons = new List<Button> { letterButton1, letterButton2, letterButton3, letterButton4, letterButton5, letterButton6, letterButton7 };
+            for (int i = 0; i < _currentLetters.Count; i++)
+            {
+                letterButtons[i].Text = _currentLetters[i].ToString();
+            }
         }
 
         private void letterButton1_Click(object sender, EventArgs e)
