@@ -215,14 +215,13 @@ namespace KennethKyleDeLunaProject2
 
         }
 
-        private void undoButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void clearButton_Click(object sender, EventArgs e)
         {
-
+            foreach (var letterObj in _letterButtons)
+            {
+                letterObj.IsSelected = false;
+            }
+            refreshLetterButtons();
         }
 
         private void inputControlsActive(bool isActive)
@@ -232,7 +231,6 @@ namespace KennethKyleDeLunaProject2
                 button.Enabled = isActive;
             }
             addButton.Enabled = isActive;
-            undoButton.Enabled = isActive;
             clearButton.Enabled = isActive;
         }
         private void newGameToolStripMenuItem_Click(object sender, EventArgs e)

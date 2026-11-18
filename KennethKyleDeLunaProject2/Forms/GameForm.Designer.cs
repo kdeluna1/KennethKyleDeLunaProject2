@@ -40,7 +40,6 @@
             letterButton3 = new Button();
             letterButton2 = new Button();
             addButton = new Button();
-            undoButton = new Button();
             clearButton = new Button();
             wordTextBox = new TextBox();
             groupBox1 = new GroupBox();
@@ -141,13 +140,6 @@
             addButton.Name = "addButton";
             addButton.UseVisualStyleBackColor = true;
             addButton.Click += addButton_Click;
-            // 
-            // undoButton
-            // 
-            resources.ApplyResources(undoButton, "undoButton");
-            undoButton.Name = "undoButton";
-            undoButton.UseVisualStyleBackColor = true;
-            undoButton.Click += undoButton_Click;
             // 
             // clearButton
             // 
@@ -269,7 +261,6 @@
             Controls.Add(groupBox1);
             Controls.Add(wordTextBox);
             Controls.Add(clearButton);
-            Controls.Add(undoButton);
             Controls.Add(addButton);
             Controls.Add(lettersGroupBox);
             Controls.Add(menuStrip1);
@@ -295,7 +286,6 @@
         private Button letterButton2;
         private Button twistButton;
         private Button addButton;
-        private Button undoButton;
         private Button clearButton;
         private TextBox wordTextBox;
         private GroupBox groupBox1;
