@@ -28,21 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dataGridView1 = new DataGridView();
+            highScoresGridView = new DataGridView();
             scoreSortButton = new Button();
             boardResetButton = new Button();
             closeButton = new Button();
             timeScoreSortButton = new Button();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            playerNameColumn = new DataGridViewTextBoxColumn();
+            scoreColumn = new DataGridViewTextBoxColumn();
+            timeColumn = new DataGridViewTextBoxColumn();
+            dateColumn = new DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)highScoresGridView).BeginInit();
             SuspendLayout();
             // 
-            // dataGridView1
+            // highScoresGridView
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(12, 12);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(776, 366);
-            dataGridView1.TabIndex = 0;
+            highScoresGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            highScoresGridView.Columns.AddRange(new DataGridViewColumn[] { playerNameColumn, scoreColumn, timeColumn, dateColumn });
+            highScoresGridView.Location = new Point(12, 12);
+            highScoresGridView.Name = "highScoresGridView";
+            highScoresGridView.RowHeadersVisible = false;
+            highScoresGridView.Size = new Size(776, 366);
+            highScoresGridView.TabIndex = 0;
             // 
             // scoreSortButton
             // 
@@ -52,6 +58,7 @@
             scoreSortButton.TabIndex = 1;
             scoreSortButton.Text = "Sort by Score";
             scoreSortButton.UseVisualStyleBackColor = true;
+            scoreSortButton.Click += scoreSortButton_Click;
             // 
             // boardResetButton
             // 
@@ -61,6 +68,7 @@
             boardResetButton.TabIndex = 3;
             boardResetButton.Text = "Reset Board";
             boardResetButton.UseVisualStyleBackColor = true;
+            boardResetButton.Click += boardResetButton_Click;
             // 
             // closeButton
             // 
@@ -70,6 +78,7 @@
             closeButton.TabIndex = 4;
             closeButton.Text = "Close";
             closeButton.UseVisualStyleBackColor = true;
+            closeButton.Click += closeButton_Click;
             // 
             // timeScoreSortButton
             // 
@@ -79,6 +88,31 @@
             timeScoreSortButton.TabIndex = 5;
             timeScoreSortButton.Text = "Sort by Time Score";
             timeScoreSortButton.UseVisualStyleBackColor = true;
+            timeScoreSortButton.Click += timeScoreSortButton_Click;
+            // 
+            // playerNameColumn
+            // 
+            playerNameColumn.HeaderText = "Player Name";
+            playerNameColumn.Name = "playerNameColumn";
+            playerNameColumn.Width = 303;
+            // 
+            // scoreColumn
+            // 
+            scoreColumn.HeaderText = "Score";
+            scoreColumn.Name = "scoreColumn";
+            scoreColumn.Width = 110;
+            // 
+            // timeColumn
+            // 
+            timeColumn.HeaderText = "Round Time";
+            timeColumn.Name = "timeColumn";
+            timeColumn.Width = 110;
+            // 
+            // dateColumn
+            // 
+            dateColumn.HeaderText = "Date Achieved";
+            dateColumn.Name = "dateColumn";
+            dateColumn.Width = 250;
             // 
             // HighScoresForm
             // 
@@ -89,19 +123,23 @@
             Controls.Add(closeButton);
             Controls.Add(boardResetButton);
             Controls.Add(scoreSortButton);
-            Controls.Add(dataGridView1);
+            Controls.Add(highScoresGridView);
             Name = "HighScoresForm";
             Text = "HighScoresForm";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)highScoresGridView).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private DataGridView dataGridView1;
+        private DataGridView highScoresGridView;
         private Button scoreSortButton;
         private Button boardResetButton;
         private Button closeButton;
         private Button timeScoreSortButton;
+        private DataGridViewTextBoxColumn playerNameColumn;
+        private DataGridViewTextBoxColumn scoreColumn;
+        private DataGridViewTextBoxColumn timeColumn;
+        private DataGridViewTextBoxColumn dateColumn;
     }
 }

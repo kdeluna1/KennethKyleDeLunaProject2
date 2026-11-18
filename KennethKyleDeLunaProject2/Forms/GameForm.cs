@@ -1,4 +1,5 @@
 using KennethKyleDeLunaProject2.Datatier;
+using KennethKyleDeLunaProject2.Forms;
 using KennethKyleDeLunaProject2.Model;
 using System.Text;
 
@@ -27,6 +28,7 @@ namespace KennethKyleDeLunaProject2
         private List<LetterButton> _letterButtons = new List<LetterButton>();
         private List<Button> _uiButtons = new List<Button>();
         private List<char> _currentLetters = new List<char>();
+        private HighScoreDatatier _highScoreService;
 
         public gameForm()
         {
@@ -116,10 +118,10 @@ namespace KennethKyleDeLunaProject2
                 _gameRounds.Add(_currentRound);
                 using (Form summaryForm = new RoundSummaryForm(_currentRound))
                 {
-                summaryForm.ShowDialog(this);
+                    summaryForm.ShowDialog(this);
                 }
             }
-            
+
             gamePointersLabel.Text = "Round over! Go to Game -> New Game to play again.";
 
         }
@@ -450,7 +452,7 @@ namespace KennethKyleDeLunaProject2
                 {
                     try
                     {
-                        ScoresExporter.ExportScoresToFile( saveFileDialog.FileName, _gameRounds);
+                        ScoresExporter.ExportScoresToFile(saveFileDialog.FileName, _gameRounds);
                         MessageBox.Show("Game rounds exported successfully.", "Export Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception ex)
@@ -458,6 +460,14 @@ namespace KennethKyleDeLunaProject2
                         MessageBox.Show($"Error exporting game rounds: {ex.Message}", "Export Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
+            }
+        }
+
+        private void scoreToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            using (var hsForm = new HighScoresForm(_highScoreService))
+            {
+                hsForm.ShowDialog(this);
             }
         }
     }

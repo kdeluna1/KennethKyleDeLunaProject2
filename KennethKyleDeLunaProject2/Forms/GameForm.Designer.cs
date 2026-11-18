@@ -242,6 +242,7 @@
             // 
             scoreToolStripMenuItem1.Name = "scoreToolStripMenuItem1";
             resources.ApplyResources(scoreToolStripMenuItem1, "scoreToolStripMenuItem1");
+            scoreToolStripMenuItem1.Click += scoreToolStripMenuItem1_Click;
             // 
             // exportHighToolStripMenuItem
             // 
