@@ -7,11 +7,15 @@ namespace KennethKyleDeLunaProject2
     {
         private readonly DictionaryLoader _dictionaryLoader = new DictionaryLoader();
         private readonly LetterDraw _letterDraw = new LetterDraw();
-        private GameRound? _currentRound;
         private readonly Random _random = new Random();
+        private readonly List<(int wordLength, int score)> _wordScores = new List<(int, int)>
+        {
+            (3, 90), (4, 160), (5, 250), (6, 460), (7, 490)
+        };
+        private GameRound? _currentRound;
+        private List<GameRound> _gameRounds = new List<GameRound>();
         private int _gameTimeInSeconds = 60;
         private int _timeRemainingInSeconds = 60;
-        private int _score = 0;
         private bool _isRoundActive = false;
         private bool _isFirstClick = true;
         private class LetterButton
@@ -86,7 +90,10 @@ namespace KennethKyleDeLunaProject2
             _letterButtons = _currentLetters.Select(l => new LetterButton { Letter = l, IsSelected = false }).ToList();
             _currentRound = new GameRound
             {
-                RoundScore = 0
+                RoundNumber = _gameRounds.Count + 1,
+                RoundScore = 0,
+                AvailableLetters = new string(_currentLetters.ToArray()),
+                RoundMaxTimeSeconds = _gameTimeInSeconds
             };
             _timeRemainingInSeconds = _gameTimeInSeconds;
             inputControlsActive(true);
@@ -212,30 +219,64 @@ namespace KennethKyleDeLunaProject2
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            string word = wordTextBox.Text.ToString();
+            string word = wordTextBox.Text.ToString().Trim();
+            string time = gameTimerFormat(_timeRemainingInSeconds);
 
             if (word.Length < 3)
             {
-                MessageBox.Show("Word must be at least 3 letters long.", "Invalid Word", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                gamePointersLabel.Text = "Word must be at least 3 letters long.";
+                gamePointersLabel.ForeColor = Color.Red;
+                clearTextBox();
+                return;
+            }
+            if (_currentRound?.ValidWords?.Any(v=>v.Word == word) == true)
+            {
+                gamePointersLabel.Text = "Word has already been submitted.";
+                gamePointersLabel.ForeColor = Color.Orange;
+                _currentRound?.InvalidWords?.Add(new InvalidWordAttempt
+                {
+                    Word = word,
+                    GameTimeAttempted = gameTimerFormat(_timeRemainingInSeconds),
+                    RoundMaxTimeSeconds = _gameTimeInSeconds,
+                    InvalidReason = "Word has already been submitted."
+                });
+                clearTextBox();
                 return;
             }
             if (!_dictionaryLoader.IsValidWord(word))
             {
                 gamePointersLabel.Text = $"'{word}' is not a valid word.";
                 gamePointersLabel.ForeColor = Color.Red;
-                wordTextBox.Text = "";
+                _currentRound?.InvalidWords?.Add(new InvalidWordAttempt
+                {
+                    Word = word,
+                    GameTimeAttempted = gameTimerFormat(_timeRemainingInSeconds),
+                    RoundMaxTimeSeconds = _gameTimeInSeconds,
+                    InvalidReason = $"'{word}' is not a valid word."
+                });
+                clearTextBox();
                 return;
             }
+
+            int score = _wordScores.FirstOrDefault(ws => ws.wordLength == word.Length).score;
+            _currentRound?.ValidWords?.Add(new ValidWordAttempt
+            {
+                Word = word,
+                GameTimeAttempted = gameTimerFormat(_timeRemainingInSeconds),
+                RoundMaxTimeSeconds = _gameTimeInSeconds,
+                WordScore = score
+            });
+            _currentRound?.RoundScore += score;
+            validWordsListBox.Items.Add($"{word} - {score} points at {gameTimerFormat(_timeRemainingInSeconds)}");
+            scoreLabel.Text = $"Score: {_currentRound?.RoundScore ?? 0}";
+            gamePointersLabel.Text = $"'{word}' added for {score} points.";
+            gamePointersLabel.ForeColor = Color.Green;
+            clearTextBox();
         }
 
         private void clearButton_Click(object sender, EventArgs e)
         {
-            wordTextBox.Text = "";
-            foreach (var letterObj in _letterButtons)
-            {
-                letterObj.IsSelected = false;
-            }
-            refreshLetterButtons();
+            clearTextBox();
         }
 
         private void inputControlsActive(bool isActive)
@@ -247,9 +288,20 @@ namespace KennethKyleDeLunaProject2
             addButton.Enabled = isActive;
             clearButton.Enabled = isActive;
         }
+
         private void newGameToolStripMenuItem_Click(object sender, EventArgs e)
         {
             startRound();
+        }
+
+        private void clearTextBox()
+        {
+            wordTextBox.Text = "";
+            foreach (var letterObj in _letterButtons)
+            {
+                letterObj.IsSelected = false;
+            }
+            refreshLetterButtons();
         }
     }
 }
