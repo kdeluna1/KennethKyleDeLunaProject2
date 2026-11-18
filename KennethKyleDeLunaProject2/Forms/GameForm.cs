@@ -90,6 +90,7 @@ namespace KennethKyleDeLunaProject2
             _isRoundActive = true;
             _currentLetters = _letterDraw.DrawLetters(7);
             _letterButtons = _currentLetters.Select(l => new LetterButton { Letter = l, IsSelected = false }).ToList();
+            validWordsListBox.Items.Clear();
             _currentRound = new GameRound
             {
                 RoundNumber = _gameRounds.Count + 1,
@@ -198,7 +199,6 @@ namespace KennethKyleDeLunaProject2
             {
                 _isFirstClick = false;
                 inputControlsActive(true);
-                twistButton.Text = "TWIST!";
                 startRound();
             }
 

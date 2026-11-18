@@ -11,7 +11,7 @@ namespace KennethKyleDeLunaProject2
 {
     public partial class RoundSummaryForm : Form
     {
-        public RoundSummaryForm(GameRound attempt)
+        public RoundSummaryForm(GameRound? attempt)
         {
             InitializeComponent();
         }
