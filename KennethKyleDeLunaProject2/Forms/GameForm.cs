@@ -135,6 +135,15 @@ namespace KennethKyleDeLunaProject2
                 _letterButtons[index].IsSelected = !_letterButtons[index].IsSelected;
                 refreshLetterButtons();
             }
+
+            if (_letterButtons[index].IsSelected)
+            {
+                wordTextBox.Text += _letterButtons[index].Letter;
+            } 
+            else
+            {
+                wordTextBox.Text = wordTextBox.Text.Replace(_letterButtons[index].Letter.ToString(), ""); 
+            }
         }
 
         private void letterButton1_Click(object sender, EventArgs e)
