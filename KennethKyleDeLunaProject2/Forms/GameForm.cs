@@ -7,7 +7,7 @@ namespace KennethKyleDeLunaProject2
     public partial class gameForm : Form
     {
         private readonly DictionaryLoader _dictionaryLoader = new DictionaryLoader();
-        private GameRound _currentRound;
+        private GameRound? _currentRound;
         private int _gameTimeInSeconds = 60;
         private int _timeRemainingInSeconds = 60;
         private int _score = 0;
