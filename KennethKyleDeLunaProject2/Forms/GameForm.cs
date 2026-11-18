@@ -59,7 +59,7 @@ namespace KennethKyleDeLunaProject2
         {
             int mins = seconds / 60;
             int secs = seconds % 60;
-            return $"Time: {mins:D2}:{secs:D2}";
+            return $"{mins:D2}:{secs:D2}";
         }
 
         private void gameTimer_Tick(object sender, EventArgs e)
@@ -81,7 +81,7 @@ namespace KennethKyleDeLunaProject2
 
         private void UpdateTimerDisplay()
         {
-            timerLabel.Text = gameTimerFormat(_timeRemainingInSeconds);
+            timerLabel.Text = $"Time: {gameTimerFormat(_timeRemainingInSeconds)}";
             timerLabel.ForeColor = _timeRemainingInSeconds <= 10 ? Color.Red : Color.Black;
         }
 

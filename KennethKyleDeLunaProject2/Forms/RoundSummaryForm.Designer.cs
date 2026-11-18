@@ -42,9 +42,9 @@
             // roundSummaryGroupBox
             // 
             roundSummaryGroupBox.Controls.Add(roundSummaryListView);
-            roundSummaryGroupBox.Location = new Point(12, 130);
+            roundSummaryGroupBox.Location = new Point(6, 111);
             roundSummaryGroupBox.Name = "roundSummaryGroupBox";
-            roundSummaryGroupBox.Size = new Size(445, 248);
+            roundSummaryGroupBox.Size = new Size(446, 248);
             roundSummaryGroupBox.TabIndex = 0;
             roundSummaryGroupBox.TabStop = false;
             roundSummaryGroupBox.Text = "Round Summary";
@@ -52,45 +52,48 @@
             // roundSummaryListView
             // 
             roundSummaryListView.Columns.AddRange(new ColumnHeader[] { validWordColumn, pointsColumn, timeColumn });
+            roundSummaryListView.FullRowSelect = true;
+            roundSummaryListView.GridLines = true;
             roundSummaryListView.Location = new Point(6, 22);
             roundSummaryListView.Name = "roundSummaryListView";
-            roundSummaryListView.Size = new Size(433, 220);
+            roundSummaryListView.Size = new Size(434, 220);
             roundSummaryListView.TabIndex = 0;
             roundSummaryListView.UseCompatibleStateImageBehavior = false;
             roundSummaryListView.View = View.Details;
-            roundSummaryListView.FullRowSelect = true;
-            roundSummaryListView.GridLines = true;
             // 
             // validWordColumn
             // 
             validWordColumn.Text = "Valid Words";
-            validWordColumn.Width = 200;
+            validWordColumn.TextAlign = HorizontalAlignment.Center;
+            validWordColumn.Width = 160;
             // 
             // pointsColumn
             // 
             pointsColumn.Text = "Points";
             pointsColumn.TextAlign = HorizontalAlignment.Center;
-            pointsColumn.Width = 100;
+            pointsColumn.Width = 120;
             // 
             // timeColumn
             // 
             timeColumn.Text = "Time Entered";
-            timeColumn.Width = 130;
+            timeColumn.TextAlign = HorizontalAlignment.Center;
+            timeColumn.Width = 150;
             // 
             // continueButton
             // 
-            continueButton.Location = new Point(342, 394);
+            continueButton.Location = new Point(331, 374);
             continueButton.Name = "continueButton";
             continueButton.Size = new Size(115, 31);
             continueButton.TabIndex = 1;
             continueButton.Text = "Continue";
             continueButton.UseVisualStyleBackColor = true;
+            continueButton.Click += continueButton_Click;
             // 
             // roundCompleteLabel
             // 
             roundCompleteLabel.AutoSize = true;
             roundCompleteLabel.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            roundCompleteLabel.Location = new Point(18, 38);
+            roundCompleteLabel.Location = new Point(12, 37);
             roundCompleteLabel.Name = "roundCompleteLabel";
             roundCompleteLabel.Size = new Size(104, 25);
             roundCompleteLabel.TabIndex = 2;
@@ -100,7 +103,7 @@
             // 
             roundDetailsLabel.AutoSize = true;
             roundDetailsLabel.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            roundDetailsLabel.Location = new Point(18, 76);
+            roundDetailsLabel.Location = new Point(12, 71);
             roundDetailsLabel.Name = "roundDetailsLabel";
             roundDetailsLabel.Size = new Size(156, 21);
             roundDetailsLabel.TabIndex = 3;
@@ -110,7 +113,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(469, 437);
+            ClientSize = new Size(458, 422);
             Controls.Add(roundDetailsLabel);
             Controls.Add(roundCompleteLabel);
             Controls.Add(continueButton);
