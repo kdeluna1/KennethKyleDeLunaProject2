@@ -155,6 +155,7 @@
             wordTextBox.Name = "wordTextBox";
             wordTextBox.KeyPress += wordTextBox_KeyPress;
             wordTextBox.TextChanged += wordTextBox_Changed;
+            wordTextBox.KeyDown += wordTextBox_KeyDown;
             // 
             // groupBox1
             // 

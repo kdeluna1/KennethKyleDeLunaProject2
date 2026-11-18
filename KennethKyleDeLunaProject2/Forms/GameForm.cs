@@ -26,6 +26,7 @@ namespace KennethKyleDeLunaProject2
         }
         private List<LetterButton> _letterButtons = new List<LetterButton>();
         private List<Button> _uiButtons = new List<Button>();
+        private List<char> _currentLetters = new List<char>();
 
         public gameForm()
         {
@@ -87,7 +88,7 @@ namespace KennethKyleDeLunaProject2
         private void startRound()
         {
             _isRoundActive = true;
-            List<char> _currentLetters = _letterDraw.DrawLetters(7);
+            _currentLetters = _letterDraw.DrawLetters(7);
             _letterButtons = _currentLetters.Select(l => new LetterButton { Letter = l, IsSelected = false }).ToList();
             _currentRound = new GameRound
             {
@@ -222,59 +223,7 @@ namespace KennethKyleDeLunaProject2
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            string word = wordTextBox.Text.ToString().Trim();
-            string time = gameTimerFormat(_timeRemainingInSeconds);
-
-            if (word.Length < 3)
-            {
-                gamePointersLabel.Text = "Word must be at least 3 letters long.";
-                gamePointersLabel.ForeColor = Color.Red;
-                clearTextBox();
-                return;
-            }
-            if (_currentRound?.ValidWords?.Any(v => v.Word == word) == true)
-            {
-                gamePointersLabel.Text = "Word has already been submitted.";
-                gamePointersLabel.ForeColor = Color.Orange;
-                _currentRound?.InvalidWords?.Add(new InvalidWordAttempt
-                {
-                    Word = word,
-                    GameTimeAttempted = gameTimerFormat(_timeRemainingInSeconds),
-                    RoundMaxTimeSeconds = _gameTimeInSeconds,
-                    InvalidReason = "Word has already been submitted."
-                });
-                clearTextBox();
-                return;
-            }
-            if (!_dictionaryLoader.IsValidWord(word))
-            {
-                gamePointersLabel.Text = $"'{word}' is not a valid word.";
-                gamePointersLabel.ForeColor = Color.Red;
-                _currentRound?.InvalidWords?.Add(new InvalidWordAttempt
-                {
-                    Word = word,
-                    GameTimeAttempted = gameTimerFormat(_timeRemainingInSeconds),
-                    RoundMaxTimeSeconds = _gameTimeInSeconds,
-                    InvalidReason = $"'{word}' is not a valid word."
-                });
-                clearTextBox();
-                return;
-            }
-
-            int score = _wordScores.FirstOrDefault(ws => ws.wordLength == word.Length).score;
-            _currentRound?.ValidWords?.Add(new ValidWordAttempt
-            {
-                Word = word,
-                GameTimeAttempted = gameTimerFormat(_timeRemainingInSeconds),
-                RoundMaxTimeSeconds = _gameTimeInSeconds,
-                WordScore = score
-            });
-            _currentRound?.RoundScore += score;
-            validWordsListBox.Items.Add($"{word} - {score} points at {gameTimerFormat(_timeRemainingInSeconds)}");
-            scoreLabel.Text = $"Score: {_currentRound?.RoundScore ?? 0}";
-            gamePointersLabel.Text = $"'{word}' added for {score} points.";
-            gamePointersLabel.ForeColor = Color.Green;
-            clearTextBox();
+            submitWordAttempt();
         }
 
         private void clearButton_Click(object sender, EventArgs e)
@@ -382,6 +331,101 @@ namespace KennethKyleDeLunaProject2
             }
 
             refreshLetterButtons();
+        }
+
+        private void wordTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {   
+                e.SuppressKeyPress = true;
+                submitWordAttempt();
+            }
+        }
+
+        private bool canFormFromAvailableLetters(string word)
+        {
+            List<char> availableLetters = _currentLetters.Select(c => char.ToUpperInvariant(c)).ToList();
+            foreach (char ch in word.ToUpperInvariant())
+            {
+                if (!availableLetters.Remove(ch))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        private void submitWordAttempt()
+        {
+            string word = wordTextBox.Text.ToString().Trim();
+            string time = gameTimerFormat(_timeRemainingInSeconds);
+            if (word.Length < 3)
+            {
+                gamePointersLabel.Text = "Word must be at least 3 letters long.";
+                gamePointersLabel.ForeColor = Color.Red;
+                clearTextBox();
+                return;
+            }
+
+            if (!canFormFromAvailableLetters(word))
+            {
+                gamePointersLabel.Text = "Word uses invalid or unavailable characters.";
+                gamePointersLabel.ForeColor = Color.Red;
+                _currentRound?.InvalidWords?.Add(new InvalidWordAttempt
+                {
+                    Word = word,
+                    GameTimeAttempted = gameTimerFormat(_timeRemainingInSeconds),
+                    RoundMaxTimeSeconds = _gameTimeInSeconds,
+                    InvalidReason = "Word uses invalid or unavailable characters."
+                });
+                clearTextBox();
+                return;
+            }
+
+            if (_currentRound?.ValidWords?.Any(v => v.Word == word) == true)
+            {
+                gamePointersLabel.Text = "Word has already been submitted.";
+                gamePointersLabel.ForeColor = Color.Orange;
+                _currentRound?.InvalidWords?.Add(new InvalidWordAttempt
+                {
+                    Word = word,
+                    GameTimeAttempted = gameTimerFormat(_timeRemainingInSeconds),
+                    RoundMaxTimeSeconds = _gameTimeInSeconds,
+                    InvalidReason = "Word has already been submitted."
+                });
+                clearTextBox();
+                return;
+            }
+
+            if (!_dictionaryLoader.IsValidWord(word))
+            {
+                gamePointersLabel.Text = $"'{word}' is not a valid word.";
+                gamePointersLabel.ForeColor = Color.Red;
+                _currentRound?.InvalidWords?.Add(new InvalidWordAttempt
+                {
+                    Word = word,
+                    GameTimeAttempted = gameTimerFormat(_timeRemainingInSeconds),
+                    RoundMaxTimeSeconds = _gameTimeInSeconds,
+                    InvalidReason = $"'{word}' is not a valid word."
+                });
+                clearTextBox();
+                return;
+            }
+
+            int score = _wordScores.FirstOrDefault(ws => ws.wordLength == word.Length).score;
+            _currentRound?.ValidWords?.Add(new ValidWordAttempt
+            {
+                Word = word,
+                GameTimeAttempted = gameTimerFormat(_timeRemainingInSeconds),
+                RoundMaxTimeSeconds = _gameTimeInSeconds,
+                WordScore = score
+            });
+            _currentRound?.RoundScore += score;
+            validWordsListBox.Items.Add($"{word} - {score} points at {gameTimerFormat(_timeRemainingInSeconds)}");
+            scoreLabel.Text = $"Score: {_currentRound?.RoundScore ?? 0}";
+            gamePointersLabel.Text = $"'{word}' added for {score} points.";
+            gamePointersLabel.ForeColor = Color.Green;
+            clearTextBox();
         }
 
     }
