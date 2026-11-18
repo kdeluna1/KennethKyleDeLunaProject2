@@ -212,11 +212,25 @@ namespace KennethKyleDeLunaProject2
 
         private void addButton_Click(object sender, EventArgs e)
         {
+            string word = wordTextBox.Text.ToString();
 
+            if (word.Length < 3)
+            {
+                MessageBox.Show("Word must be at least 3 letters long.", "Invalid Word", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (!_dictionaryLoader.IsValidWord(word))
+            {
+                gamePointersLabel.Text = $"'{word}' is not a valid word.";
+                gamePointersLabel.ForeColor = Color.Red;
+                wordTextBox.Text = "";
+                return;
+            }
         }
 
         private void clearButton_Click(object sender, EventArgs e)
         {
+            wordTextBox.Text = "";
             foreach (var letterObj in _letterButtons)
             {
                 letterObj.IsSelected = false;
