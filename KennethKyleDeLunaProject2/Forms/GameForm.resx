@@ -615,6 +615,12 @@
   <data name="newGameToolStripMenuItem.Text" xml:space="preserve">
     <value>New Game</value>
   </data>
+  <data name="exitToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>132, 22</value>
+  </data>
+  <data name="exitToolStripMenuItem.Text" xml:space="preserve">
+    <value>Exit</value>
+  </data>
   <data name="gameToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>50, 20</value>
   </data>
@@ -622,19 +628,19 @@
     <value>Game</value>
   </data>
   <data name="oneMinuteToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="oneMinuteToolStripMenuItem.Text" xml:space="preserve">
     <value>1 Minute (60s)</value>
   </data>
   <data name="twoMinutesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="twoMinutesToolStripMenuItem.Text" xml:space="preserve">
     <value>2 Minutes (120s)</value>
   </data>
   <data name="threeMinutesToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="threeMinutesToolStripMenuItem1.Text" xml:space="preserve">
     <value>3 Minutes (180s)</value>
@@ -751,6 +757,12 @@
     <value>newGameToolStripMenuItem</value>
   </data>
   <data name="&gt;&gt;newGameToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;exitToolStripMenuItem.Name" xml:space="preserve">
+    <value>exitToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;exitToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;timeToolStripMenuItem.Name" xml:space="preserve">

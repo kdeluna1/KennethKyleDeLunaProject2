@@ -98,6 +98,8 @@ namespace KennethKyleDeLunaProject2
             _timeRemainingInSeconds = _gameTimeInSeconds;
             inputControlsActive(true);
             refreshLetterButtons();
+            _isFirstClick = false;
+            twistButton.Text = "TWIST!";
             gameTimer.Start();
         }
 
@@ -106,7 +108,7 @@ namespace KennethKyleDeLunaProject2
             gameTimer.Stop();
             _isRoundActive = false;
             inputControlsActive(false);
-            using (var summaryForm = new RoundSummaryForm(_currentRound))
+            using (Form summaryForm = new RoundSummaryForm(_currentRound))
             {
                 summaryForm.ShowDialog(this);
             }
@@ -115,7 +117,7 @@ namespace KennethKyleDeLunaProject2
 
         private void refreshLetterButtons()
         {
-           
+
             for (int i = 0; i < _letterButtons.Count; i++)
             {
                 _uiButtons[i].Text = _letterButtons[i].Letter.ToString();
@@ -146,10 +148,10 @@ namespace KennethKyleDeLunaProject2
             if (_letterButtons[index].IsSelected)
             {
                 wordTextBox.Text += _letterButtons[index].Letter;
-            } 
+            }
             else
             {
-                wordTextBox.Text = wordTextBox.Text.Replace(_letterButtons[index].Letter.ToString(), ""); 
+                wordTextBox.Text = wordTextBox.Text.Replace(_letterButtons[index].Letter.ToString(), "");
             }
         }
 
@@ -229,7 +231,7 @@ namespace KennethKyleDeLunaProject2
                 clearTextBox();
                 return;
             }
-            if (_currentRound?.ValidWords?.Any(v=>v.Word == word) == true)
+            if (_currentRound?.ValidWords?.Any(v => v.Word == word) == true)
             {
                 gamePointersLabel.Text = "Word has already been submitted.";
                 gamePointersLabel.ForeColor = Color.Orange;
@@ -302,6 +304,29 @@ namespace KennethKyleDeLunaProject2
                 letterObj.IsSelected = false;
             }
             refreshLetterButtons();
+        }
+
+        private void setTime(int seconds, ToolStripMenuItem menuItem)
+        {
+            _gameTimeInSeconds = seconds;
+            oneMinuteToolStripMenuItem.Checked = (menuItem == oneMinuteToolStripMenuItem);
+            twoMinutesToolStripMenuItem.Checked = (menuItem == twoMinutesToolStripMenuItem);
+            threeMinutesToolStripMenuItem1.Checked = (menuItem == threeMinutesToolStripMenuItem1);
+            startRound();
+        }
+        private void oneMinuteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            setTime(60, oneMinuteToolStripMenuItem);
+        }
+
+        private void twoMinutesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            setTime(120, twoMinutesToolStripMenuItem);
+        }
+
+        private void threeMinutesToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            setTime(180, threeMinutesToolStripMenuItem1);
         }
     }
 }

@@ -49,6 +49,7 @@
             menuStrip1 = new MenuStrip();
             gameToolStripMenuItem = new ToolStripMenuItem();
             newGameToolStripMenuItem = new ToolStripMenuItem();
+            exitToolStripMenuItem = new ToolStripMenuItem();
             timeToolStripMenuItem = new ToolStripMenuItem();
             oneMinuteToolStripMenuItem = new ToolStripMenuItem();
             twoMinutesToolStripMenuItem = new ToolStripMenuItem();
@@ -184,7 +185,7 @@
             // 
             // gameToolStripMenuItem
             // 
-            gameToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { newGameToolStripMenuItem });
+            gameToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { newGameToolStripMenuItem, exitToolStripMenuItem });
             gameToolStripMenuItem.Name = "gameToolStripMenuItem";
             resources.ApplyResources(gameToolStripMenuItem, "gameToolStripMenuItem");
             // 
@@ -193,6 +194,11 @@
             newGameToolStripMenuItem.Name = "newGameToolStripMenuItem";
             resources.ApplyResources(newGameToolStripMenuItem, "newGameToolStripMenuItem");
             newGameToolStripMenuItem.Click += newGameToolStripMenuItem_Click;
+            // 
+            // exitToolStripMenuItem
+            // 
+            exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            resources.ApplyResources(exitToolStripMenuItem, "exitToolStripMenuItem");
             // 
             // timeToolStripMenuItem
             // 
@@ -207,18 +213,21 @@
             oneMinuteToolStripMenuItem.CheckState = CheckState.Checked;
             oneMinuteToolStripMenuItem.Name = "oneMinuteToolStripMenuItem";
             resources.ApplyResources(oneMinuteToolStripMenuItem, "oneMinuteToolStripMenuItem");
+            oneMinuteToolStripMenuItem.Click += oneMinuteToolStripMenuItem_Click;
             // 
             // twoMinutesToolStripMenuItem
             // 
             twoMinutesToolStripMenuItem.CheckOnClick = true;
             twoMinutesToolStripMenuItem.Name = "twoMinutesToolStripMenuItem";
             resources.ApplyResources(twoMinutesToolStripMenuItem, "twoMinutesToolStripMenuItem");
+            twoMinutesToolStripMenuItem.Click += twoMinutesToolStripMenuItem_Click;
             // 
             // threeMinutesToolStripMenuItem1
             // 
             threeMinutesToolStripMenuItem1.CheckOnClick = true;
             threeMinutesToolStripMenuItem1.Name = "threeMinutesToolStripMenuItem1";
             resources.ApplyResources(threeMinutesToolStripMenuItem1, "threeMinutesToolStripMenuItem1");
+            threeMinutesToolStripMenuItem1.Click += threeMinutesToolStripMenuItem1_Click;
             // 
             // scoreToolStripMenuItem
             // 
@@ -305,5 +314,6 @@
         private ToolStripMenuItem exportScoresToolStripMenuItem;
         private Label scoreLabel;
         private System.Windows.Forms.Timer gameTimer;
+        private ToolStripMenuItem exitToolStripMenuItem;
     }
 }
