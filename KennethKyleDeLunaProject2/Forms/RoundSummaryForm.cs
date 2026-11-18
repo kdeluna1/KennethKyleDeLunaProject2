@@ -14,6 +14,15 @@ namespace KennethKyleDeLunaProject2
         public RoundSummaryForm(GameRound? attempt)
         {
             InitializeComponent();
+            roundCompleteLabel.Text = $"Round {attempt?.RoundNumber} Complete!";
+            roundDetailsLabel.Text = $"You scored {attempt?.RoundScore} points in this round. ({attempt?.ValidWords?.Count} Valid Words)";
+            foreach (var word in attempt?.ValidWords ?? new List<ValidWordAttempt>())
+            {
+                var listViewItem = new ListViewItem(word.Word);
+                listViewItem.SubItems.Add(word.WordScore.ToString());
+                listViewItem.SubItems.Add(word.GameTimeAttempted);
+                roundSummaryListView.Items.Add(listViewItem);
+            }
         }
     }
 }

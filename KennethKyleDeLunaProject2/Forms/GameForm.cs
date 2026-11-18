@@ -115,6 +115,7 @@ namespace KennethKyleDeLunaProject2
             {
                 summaryForm.ShowDialog(this);
             }
+            gamePointersLabel.Text = "Round over! Go to Game -> New Game to play again.";
 
         }
 
