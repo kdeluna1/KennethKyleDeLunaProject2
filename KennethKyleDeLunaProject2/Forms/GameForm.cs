@@ -28,7 +28,7 @@ namespace KennethKyleDeLunaProject2
         private List<LetterButton> _letterButtons = new List<LetterButton>();
         private List<Button> _uiButtons = new List<Button>();
         private List<char> _currentLetters = new List<char>();
-        private HighScoreDatatier _highScoreService;
+        private HighScoreDatatier _highScoreService = new HighScoreDatatier();
 
         public gameForm()
         {
@@ -119,6 +119,16 @@ namespace KennethKyleDeLunaProject2
                 using (Form summaryForm = new RoundSummaryForm(_currentRound))
                 {
                     summaryForm.ShowDialog(this);
+                }
+                if (_highScoreService.qualifiesForHighScore(_currentRound.RoundScore))
+                {
+                    using (var highScoreForm = new HighScoreEntryForm())
+                    {
+                        if (highScoreForm.ShowDialog(this) == DialogResult.OK)
+                        {
+                            _highScoreService.addHighScore(highScoreForm.PlayerName, _currentRound.RoundScore, _gameTimeInSeconds);
+                        }
+                    }
                 }
             }
 

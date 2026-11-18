@@ -10,13 +10,14 @@ namespace KennethKyleDeLunaProject2.Forms
 {
     public partial class HighScoreEntryForm : Form
     {
+        public string PlayerName => nameTextBox.Text.Trim();
         public HighScoreEntryForm()
         {
             InitializeComponent();
         }
         private void saveButton_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace())
+            if (string.IsNullOrWhiteSpace(nameTextBox.Text))
             {
                 MessageBox.Show("Please enter a valid name.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
