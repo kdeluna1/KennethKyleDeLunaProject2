@@ -247,6 +247,7 @@
             // 
             exportHighToolStripMenuItem.Name = "exportHighToolStripMenuItem";
             resources.ApplyResources(exportHighToolStripMenuItem, "exportHighToolStripMenuItem");
+            exportHighToolStripMenuItem.Click += exportHighToolStripMenuItem_Click;
             // 
             // exportScoresToolStripMenuItem
             // 

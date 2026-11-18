@@ -111,10 +111,15 @@ namespace KennethKyleDeLunaProject2
             gameTimer.Stop();
             _isRoundActive = false;
             inputControlsActive(false);
-            using (Form summaryForm = new RoundSummaryForm(_currentRound))
+            if (_currentRound != null)
             {
+                _gameRounds.Add(_currentRound);
+                using (Form summaryForm = new RoundSummaryForm(_currentRound))
+                {
                 summaryForm.ShowDialog(this);
+                }
             }
+            
             gamePointersLabel.Text = "Round over! Go to Game -> New Game to play again.";
 
         }
@@ -337,7 +342,7 @@ namespace KennethKyleDeLunaProject2
         private void wordTextBox_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
-            {   
+            {
                 e.SuppressKeyPress = true;
                 submitWordAttempt();
             }
@@ -407,7 +412,7 @@ namespace KennethKyleDeLunaProject2
                     Word = word,
                     GameTimeAttempted = gameTimerFormat(_timeRemainingInSeconds),
                     RoundMaxTimeSeconds = _gameTimeInSeconds,
-                    InvalidReason = $"'{word}' is not a valid word."
+                    InvalidReason = "Word is invalid."
                 });
                 clearTextBox();
                 return;
@@ -429,5 +434,31 @@ namespace KennethKyleDeLunaProject2
             clearTextBox();
         }
 
+        private void exportHighToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (_gameRounds.Count == 0)
+            {
+                MessageBox.Show("No rounds have been played yet.", "Export Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            using (SaveFileDialog saveFileDialog = new SaveFileDialog())
+            {
+                saveFileDialog.Filter = "JSON files (*.json)|*.json|All files (*.*)|*.*";
+                saveFileDialog.Title = "Export Game Rounds";
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    try
+                    {
+                        ScoresExporter.ExportScoresToFile( saveFileDialog.FileName, _gameRounds);
+                        MessageBox.Show("Game rounds exported successfully.", "Export Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Error exporting game rounds: {ex.Message}", "Export Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
     }
 }
