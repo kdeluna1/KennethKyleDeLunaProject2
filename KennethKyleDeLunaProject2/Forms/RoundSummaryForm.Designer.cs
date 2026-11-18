@@ -57,19 +57,25 @@
             roundSummaryListView.Size = new Size(433, 220);
             roundSummaryListView.TabIndex = 0;
             roundSummaryListView.UseCompatibleStateImageBehavior = false;
+            roundSummaryListView.View = View.Details;
+            roundSummaryListView.FullRowSelect = true;
+            roundSummaryListView.GridLines = true;
             // 
             // validWordColumn
             // 
             validWordColumn.Text = "Valid Words";
+            validWordColumn.Width = 200;
             // 
             // pointsColumn
             // 
             pointsColumn.Text = "Points";
             pointsColumn.TextAlign = HorizontalAlignment.Center;
+            pointsColumn.Width = 100;
             // 
             // timeColumn
             // 
             timeColumn.Text = "Time Entered";
+            timeColumn.Width = 130;
             // 
             // continueButton
             // 

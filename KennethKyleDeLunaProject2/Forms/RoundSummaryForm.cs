@@ -11,17 +11,22 @@ namespace KennethKyleDeLunaProject2
 {
     public partial class RoundSummaryForm : Form
     {
-        public RoundSummaryForm(GameRound? attempt)
+        public RoundSummaryForm(GameRound attempt)
         {
             InitializeComponent();
-            roundCompleteLabel.Text = $"Round {attempt?.RoundNumber} Complete!";
-            roundDetailsLabel.Text = $"You scored {attempt?.RoundScore} points in this round. ({attempt?.ValidWords?.Count} Valid Words)";
-            foreach (var word in attempt?.ValidWords ?? new List<ValidWordAttempt>())
+            roundCompleteLabel.Text = $"Round {attempt.RoundNumber} Complete!";
+            int validCount = attempt.ValidWords?.Count ?? 0;
+            roundDetailsLabel.Text = $"You scored {attempt.RoundScore} points in this round. ({validCount} Valid Words)";
+
+            if (attempt.ValidWords != null)
             {
-                var listViewItem = new ListViewItem(word.Word);
-                listViewItem.SubItems.Add(word.WordScore.ToString());
-                listViewItem.SubItems.Add(word.GameTimeAttempted);
-                roundSummaryListView.Items.Add(listViewItem);
+                foreach (var word in attempt.ValidWords)
+                {
+                    var listViewItem = new ListViewItem(word.Word);
+                    listViewItem.SubItems.Add(word.WordScore.ToString());
+                    listViewItem.SubItems.Add(word.GameTimeAttempted);
+                    roundSummaryListView.Items.Add(listViewItem);
+                }
             }
         }
     }
