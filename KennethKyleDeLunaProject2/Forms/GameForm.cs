@@ -7,7 +7,6 @@ namespace KennethKyleDeLunaProject2
     {
         private readonly DictionaryLoader _dictionaryLoader = new DictionaryLoader();
         private readonly LetterDraw _letterDraw = new LetterDraw();
-        private List<char> _currentLetters = new List<char>();
         private GameRound? _currentRound;
         private readonly Random _random = new Random();
         private int _gameTimeInSeconds = 60;
@@ -15,11 +14,23 @@ namespace KennethKyleDeLunaProject2
         private int _score = 0;
         private bool _isRoundActive = false;
         private bool _isFirstClick = true;
+        private class LetterButton
+        {
+            public char Letter { get; set; }
+            public bool IsSelected { get; set; }
+        }
+        private List<LetterButton> _letterButtons = new List<LetterButton>();
+        private List<Button> _uiButtons = new List<Button>();
 
         public gameForm()
         {
             InitializeComponent();
             LoadDictionary();
+            _uiButtons = new List<Button>
+            {
+                letterButton1, letterButton2, letterButton3,
+                letterButton4, letterButton5, letterButton6, letterButton7
+            };
             gameTimer.Stop();
 
         }
@@ -71,14 +82,15 @@ namespace KennethKyleDeLunaProject2
         private void startRound()
         {
             _isRoundActive = true;
-            _currentLetters = _letterDraw.DrawLetters(7);
-            refreshLetterButtons();
+            List<char> _currentLetters = _letterDraw.DrawLetters(7);
+            _letterButtons = _currentLetters.Select(l => new LetterButton { Letter = l, IsSelected = false }).ToList();
             _currentRound = new GameRound
             {
                 RoundScore = 0
             };
             _timeRemainingInSeconds = _gameTimeInSeconds;
             inputControlsActive(true);
+            refreshLetterButtons();
             gameTimer.Start();
         }
 
@@ -96,46 +108,68 @@ namespace KennethKyleDeLunaProject2
 
         private void refreshLetterButtons()
         {
-            var letterButtons = new List<Button> { letterButton1, letterButton2, letterButton3, letterButton4, letterButton5, letterButton6, letterButton7 };
-            for (int i = 0; i < _currentLetters.Count; i++)
+           
+            for (int i = 0; i < _letterButtons.Count; i++)
             {
-                letterButtons[i].Text = _currentLetters[i].ToString();
+                _uiButtons[i].Text = _letterButtons[i].Letter.ToString();
+                if (_letterButtons[i].IsSelected)
+                {
+                    _uiButtons[i].BackColor = Color.SteelBlue;
+                    _uiButtons[i].ForeColor = Color.White;
+                }
+                else
+                {
+                    _uiButtons[i].BackColor = SystemColors.Control;
+                    _uiButtons[i].ForeColor = Color.Black;
+                }
+            }
+        }
+
+        private void HandleLetterClick(Button clickedButton)
+        {
+            if (!_isRoundActive) return;
+
+            int index = _uiButtons.IndexOf(clickedButton);
+            if (index != -1 && index < _letterButtons.Count)
+            {
+                _letterButtons[index].IsSelected = !_letterButtons[index].IsSelected;
+                refreshLetterButtons();
             }
         }
 
         private void letterButton1_Click(object sender, EventArgs e)
         {
-
+            HandleLetterClick(letterButton1);
         }
 
         private void letterButton2_Click(object sender, EventArgs e)
         {
-
+            HandleLetterClick(letterButton2);
         }
 
         private void letterButton3_Click(object sender, EventArgs e)
         {
-
+            HandleLetterClick(letterButton3);
         }
 
         private void letterButton4_Click(object sender, EventArgs e)
         {
-
+            HandleLetterClick(letterButton4);
         }
 
         private void letterButton5_Click(object sender, EventArgs e)
         {
-
+            HandleLetterClick(letterButton5);
         }
 
         private void letterButton6_Click(object sender, EventArgs e)
         {
-
+            HandleLetterClick(letterButton6);
         }
 
         private void letterButton7_Click(object sender, EventArgs e)
         {
-
+            HandleLetterClick(letterButton7);
         }
 
         private void twistButton_Click(object sender, EventArgs e)
@@ -147,6 +181,24 @@ namespace KennethKyleDeLunaProject2
                 twistButton.Text = "TWIST!";
                 startRound();
             }
+
+            List<LetterButton> selectedLetters = _letterButtons.Where(lb => lb.IsSelected).ToList();
+            for (int i = _letterButtons.Count - 1; i > 0; i--)
+            {
+                int index = _random.Next(i + 1);
+                (_letterButtons[i], _letterButtons[index]) = (_letterButtons[index], _letterButtons[i]);
+            }
+
+            foreach (var letterObj in selectedLetters)
+            {
+                int index = _letterButtons.IndexOf(letterObj);
+                if (index != -1)
+                {
+                    _letterButtons[index].IsSelected = true;
+                }
+            }
+
+            refreshLetterButtons();
         }
 
         private void addButton_Click(object sender, EventArgs e)
@@ -166,13 +218,10 @@ namespace KennethKyleDeLunaProject2
 
         private void inputControlsActive(bool isActive)
         {
-            letterButton1.Enabled = isActive;
-            letterButton2.Enabled = isActive;
-            letterButton3.Enabled = isActive;
-            letterButton4.Enabled = isActive;
-            letterButton5.Enabled = isActive;
-            letterButton6.Enabled = isActive;
-            letterButton7.Enabled = isActive;
+            foreach (var button in _uiButtons)
+            {
+                button.Enabled = isActive;
+            }
             addButton.Enabled = isActive;
             undoButton.Enabled = isActive;
             clearButton.Enabled = isActive;
