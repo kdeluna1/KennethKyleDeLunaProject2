@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="KennethKyleDeLunaProject2.Properties.Resources">
+    <Position X="13.25" Y="14.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KennethKyleDeLunaProject2.Datatier.DictionaryLoader">
+    <Position X="13.25" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAQACAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Datatier\DictionaryLoader.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KennethKyleDeLunaProject2.Datatier.HighScoreDatatier">
+    <Position X="13.25" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAAAAAEgAgACAAAAAAAAAAAQEAAAAAAAAAE=</HashCode>
+      <FileName>Datatier\HighScoreDatatier.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KennethKyleDeLunaProject2.Datatier.LetterDraw">
+    <Position X="13.25" Y="12.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAEAAAAAE=</HashCode>
+      <FileName>Datatier\LetterDraw.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KennethKyleDeLunaProject2.Datatier.ScoresExporter">
+    <Position X="13.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAA=</HashCode>
+      <FileName>Datatier\ScoresExporter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KennethKyleDeLunaProject2.GameForm">
+    <Position X="22.25" Y="5" Width="1.5" />
+    <NestedTypes>
+      <Class Name="KennethKyleDeLunaProject2.GameForm.LetterButton" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Forms\GameForm.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>GRSAAhESAHhEIAoISAmAIDIXFhDrHbAQwntIADKCAEk=</HashCode>
+      <FileName>Forms\GameForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KennethKyleDeLunaProject2.RoundSummaryForm">
+    <Position X="19.5" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAACAAAIACACGAAIgCAAAQAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>Forms\RoundSummaryForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KennethKyleDeLunaProject2.Program">
+    <Position X="15" Y="14.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KennethKyleDeLunaProject2.Forms.HighScoreEntryForm">
+    <Position X="19.5" Y="14" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAEAAAAAACAAABAAAACAAAACAAAIAAAAAAAAACAAAgA=</HashCode>
+      <FileName>Forms\HighScoreEntryForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KennethKyleDeLunaProject2.Forms.HighScoresForm">
+    <Position X="19.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAARAEACAAAAEAAACAAAACQAAAGCAAAAAAQAAAIAA=</HashCode>
+      <FileName>Forms\HighScoresForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KennethKyleDeLunaProject2.Model.GameRound">
+    <Position X="16.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAUAAQAAAAAgAAAAAAAAAAgAAAAAAEAAAA=</HashCode>
+      <FileName>Model\GameRound.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KennethKyleDeLunaProject2.Model.HighScoreEntry">
+    <Position X="16.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAgBAAAAAAAAAACAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\HighScoreEntry.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KennethKyleDeLunaProject2.Model.WordAttempt">
+    <Position X="16.5" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAQAAAAAgAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\WordAttempt.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KennethKyleDeLunaProject2.Model.ValidWordAttempt">
+    <Position X="15.5" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAA=</HashCode>
+      <FileName>Model\WordAttempt.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KennethKyleDeLunaProject2.Model.InvalidWordAttempt">
+    <Position X="17.5" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAA=</HashCode>
+      <FileName>Model\WordAttempt.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KennethKyleDeLunaProject2.Model.WordGroups">
+    <Position X="16.5" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAgAAA=</HashCode>
+      <FileName>Model\WordGroups.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
