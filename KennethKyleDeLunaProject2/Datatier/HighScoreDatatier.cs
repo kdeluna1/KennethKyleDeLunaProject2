@@ -45,9 +45,15 @@ namespace KennethKyleDeLunaProject2.Datatier
 
         public bool qualifiesForHighScore(int score)
         {
-            if (score <= 0) return false;
+            if (score <= 0){
+                return false;
+            }
             var scores = loadScores();
-            if (scores.Count < MaxHighScores) return true;
+            if (scores.Count < MaxHighScores)
+            {
+                return true;
+            }
+                
             return score > scores.Min(s => s.Score);
         }
 
@@ -62,7 +68,29 @@ namespace KennethKyleDeLunaProject2.Datatier
                 DateAchieved = DateTime.Now
             });
 
+            scores = scores.OrderByDescending(s => s.Score).ThenBy(s => s.MaxTimeSeconds).Take(MaxHighScores).ToList();
+
             saveScores(scores);
+        }
+
+        public List<HighScoreEntry> GetSortedByOverallScore()
+        {
+            return loadScores()
+                .OrderByDescending(s => s.Score)
+                .ToList();
+        }
+
+        public List<HighScoreEntry> GetSortedByTimeAndScore()
+        {
+            return loadScores()
+                .OrderBy(s => s.MaxTimeSeconds)
+                .ThenByDescending(s => s.Score)
+                .ToList();
+        }
+
+        public void ResetScores()
+        {
+            saveScores(new List<HighScoreEntry>());
         }
     }
 }

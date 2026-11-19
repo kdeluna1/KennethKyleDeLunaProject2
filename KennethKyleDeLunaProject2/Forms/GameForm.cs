@@ -28,7 +28,7 @@ namespace KennethKyleDeLunaProject2
         private List<LetterButton> _letterButtons = new List<LetterButton>();
         private List<Button> _uiButtons = new List<Button>();
         private List<char> _currentLetters = new List<char>();
-        private HighScoreDatatier _highScoreService = new HighScoreDatatier();
+        private HighScoreDatatier _highScoreService = new HighScoreDatatier(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "highscores.json"));
 
         public gameForm()
         {

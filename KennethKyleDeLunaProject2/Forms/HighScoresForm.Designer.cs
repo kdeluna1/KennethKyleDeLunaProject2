@@ -33,22 +33,19 @@
             boardResetButton = new Button();
             closeButton = new Button();
             timeScoreSortButton = new Button();
-            playerNameColumn = new DataGridViewTextBoxColumn();
-            scoreColumn = new DataGridViewTextBoxColumn();
-            timeColumn = new DataGridViewTextBoxColumn();
-            dateColumn = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)highScoresGridView).BeginInit();
             SuspendLayout();
             // 
             // highScoresGridView
             // 
             highScoresGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            highScoresGridView.Columns.AddRange(new DataGridViewColumn[] { playerNameColumn, scoreColumn, timeColumn, dateColumn });
             highScoresGridView.Location = new Point(12, 12);
             highScoresGridView.Name = "highScoresGridView";
             highScoresGridView.RowHeadersVisible = false;
             highScoresGridView.Size = new Size(776, 366);
             highScoresGridView.TabIndex = 0;
+            highScoresGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            highScoresGridView.ReadOnly = true;
             // 
             // scoreSortButton
             // 
@@ -90,30 +87,6 @@
             timeScoreSortButton.UseVisualStyleBackColor = true;
             timeScoreSortButton.Click += timeScoreSortButton_Click;
             // 
-            // playerNameColumn
-            // 
-            playerNameColumn.HeaderText = "Player Name";
-            playerNameColumn.Name = "playerNameColumn";
-            playerNameColumn.Width = 303;
-            // 
-            // scoreColumn
-            // 
-            scoreColumn.HeaderText = "Score";
-            scoreColumn.Name = "scoreColumn";
-            scoreColumn.Width = 110;
-            // 
-            // timeColumn
-            // 
-            timeColumn.HeaderText = "Round Time";
-            timeColumn.Name = "timeColumn";
-            timeColumn.Width = 110;
-            // 
-            // dateColumn
-            // 
-            dateColumn.HeaderText = "Date Achieved";
-            dateColumn.Name = "dateColumn";
-            dateColumn.Width = 250;
-            // 
             // HighScoresForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -137,9 +110,5 @@
         private Button boardResetButton;
         private Button closeButton;
         private Button timeScoreSortButton;
-        private DataGridViewTextBoxColumn playerNameColumn;
-        private DataGridViewTextBoxColumn scoreColumn;
-        private DataGridViewTextBoxColumn timeColumn;
-        private DataGridViewTextBoxColumn dateColumn;
     }
 }
