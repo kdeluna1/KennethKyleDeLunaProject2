@@ -28,7 +28,7 @@ namespace KennethKyleDeLunaProject2
             /// </summary>
             public char Letter { get; set; }
             /// <summary>
-            /// Determines whether the letter is selected or enttttered by the user
+            /// Determines whether the letter is selected or entered by the user
             /// </summary>
             public bool IsSelected { get; set; }
         }
