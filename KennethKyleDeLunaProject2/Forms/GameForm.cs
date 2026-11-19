@@ -12,7 +12,7 @@ namespace KennethKyleDeLunaProject2
         private readonly Random _random = new Random();
         private readonly List<(int wordLength, int score)> _wordScores = new List<(int, int)>
         {
-            (3, 90), (4, 160), (5, 250), (6, 460), (7, 490)
+            (3, 90), (4, 160), (5, 250), (6, 360), (7, 490)
         };
         private GameRound? _currentRound;
         private List<GameRound> _gameRounds = new List<GameRound>();
