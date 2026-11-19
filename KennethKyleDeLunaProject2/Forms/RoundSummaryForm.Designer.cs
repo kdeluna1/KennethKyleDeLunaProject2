@@ -87,7 +87,7 @@
             continueButton.TabIndex = 1;
             continueButton.Text = "Continue";
             continueButton.UseVisualStyleBackColor = true;
-            continueButton.Click += continueButton_Click;
+            continueButton.Click += ContinueButton_Click;
             // 
             // roundCompleteLabel
             // 

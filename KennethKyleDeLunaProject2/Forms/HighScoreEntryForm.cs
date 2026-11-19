@@ -15,7 +15,7 @@ namespace KennethKyleDeLunaProject2.Forms
         {
             InitializeComponent();
         }
-        private void saveButton_Click(object sender, EventArgs e)
+        private void SaveButton_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(nameTextBox.Text))
             {

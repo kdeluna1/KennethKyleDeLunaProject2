@@ -55,7 +55,7 @@
             scoreSortButton.TabIndex = 1;
             scoreSortButton.Text = "Sort by Score";
             scoreSortButton.UseVisualStyleBackColor = true;
-            scoreSortButton.Click += scoreSortButton_Click;
+            scoreSortButton.Click += ScoreSortButton_Click;
             // 
             // boardResetButton
             // 
@@ -65,7 +65,7 @@
             boardResetButton.TabIndex = 3;
             boardResetButton.Text = "Reset Board";
             boardResetButton.UseVisualStyleBackColor = true;
-            boardResetButton.Click += boardResetButton_Click;
+            boardResetButton.Click += BoardResetButton_Click;
             // 
             // closeButton
             // 
@@ -75,7 +75,7 @@
             closeButton.TabIndex = 4;
             closeButton.Text = "Close";
             closeButton.UseVisualStyleBackColor = true;
-            closeButton.Click += closeButton_Click;
+            closeButton.Click += CloseButton_Click;
             // 
             // timeScoreSortButton
             // 
@@ -85,7 +85,7 @@
             timeScoreSortButton.TabIndex = 5;
             timeScoreSortButton.Text = "Sort by Time Score";
             timeScoreSortButton.UseVisualStyleBackColor = true;
-            timeScoreSortButton.Click += timeScoreSortButton_Click;
+            timeScoreSortButton.Click += TimeScoreSortButton_Click;
             // 
             // HighScoresForm
             // 

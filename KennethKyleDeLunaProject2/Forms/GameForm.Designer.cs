@@ -69,7 +69,7 @@
             resources.ApplyResources(letterButton1, "letterButton1");
             letterButton1.Name = "letterButton1";
             letterButton1.UseVisualStyleBackColor = true;
-            letterButton1.Click += letterButton1_Click;
+            letterButton1.Click += LetterButton1_Click;
             // 
             // lettersGroupBox
             // 
@@ -90,71 +90,71 @@
             resources.ApplyResources(twistButton, "twistButton");
             twistButton.Name = "twistButton";
             twistButton.UseVisualStyleBackColor = true;
-            twistButton.Click += twistButton_Click;
+            twistButton.Click += TwistButton_Click;
             // 
             // letterButton7
             // 
             resources.ApplyResources(letterButton7, "letterButton7");
             letterButton7.Name = "letterButton7";
             letterButton7.UseVisualStyleBackColor = true;
-            letterButton7.Click += letterButton7_Click;
+            letterButton7.Click += LetterButton7_Click;
             // 
             // letterButton6
             // 
             resources.ApplyResources(letterButton6, "letterButton6");
             letterButton6.Name = "letterButton6";
             letterButton6.UseVisualStyleBackColor = true;
-            letterButton6.Click += letterButton6_Click;
+            letterButton6.Click += LetterButton6_Click;
             // 
             // letterButton5
             // 
             resources.ApplyResources(letterButton5, "letterButton5");
             letterButton5.Name = "letterButton5";
             letterButton5.UseVisualStyleBackColor = true;
-            letterButton5.Click += letterButton5_Click;
+            letterButton5.Click += LetterButton5_Click;
             // 
             // letterButton4
             // 
             resources.ApplyResources(letterButton4, "letterButton4");
             letterButton4.Name = "letterButton4";
             letterButton4.UseVisualStyleBackColor = true;
-            letterButton4.Click += letterButton4_Click;
+            letterButton4.Click += LetterButton4_Click;
             // 
             // letterButton3
             // 
             resources.ApplyResources(letterButton3, "letterButton3");
             letterButton3.Name = "letterButton3";
             letterButton3.UseVisualStyleBackColor = true;
-            letterButton3.Click += letterButton3_Click;
+            letterButton3.Click += LetterButton3_Click;
             // 
             // letterButton2
             // 
             resources.ApplyResources(letterButton2, "letterButton2");
             letterButton2.Name = "letterButton2";
             letterButton2.UseVisualStyleBackColor = true;
-            letterButton2.Click += letterButton2_Click;
+            letterButton2.Click += LetterButton2_Click;
             // 
             // addButton
             // 
             resources.ApplyResources(addButton, "addButton");
             addButton.Name = "addButton";
             addButton.UseVisualStyleBackColor = true;
-            addButton.Click += addButton_Click;
+            addButton.Click += AddButton_Click;
             // 
             // clearButton
             // 
             resources.ApplyResources(clearButton, "clearButton");
             clearButton.Name = "clearButton";
             clearButton.UseVisualStyleBackColor = true;
-            clearButton.Click += clearButton_Click;
+            clearButton.Click += ClearButton_Click;
             // 
             // wordTextBox
             // 
             resources.ApplyResources(wordTextBox, "wordTextBox");
             wordTextBox.Name = "wordTextBox";
-            wordTextBox.TextChanged += wordTextBox_Changed;
-            wordTextBox.KeyDown += wordTextBox_KeyDown;
-            wordTextBox.KeyPress += wordTextBox_KeyPress;
+            wordTextBox.TextChanged += WordTextBox_Changed;
+            wordTextBox.KeyDown += WordTextBox_KeyDown;
+            wordTextBox.KeyPress += WordTextBox_KeyPress;
             // 
             // groupBox1
             // 
@@ -195,13 +195,13 @@
             // 
             newGameToolStripMenuItem.Name = "newGameToolStripMenuItem";
             resources.ApplyResources(newGameToolStripMenuItem, "newGameToolStripMenuItem");
-            newGameToolStripMenuItem.Click += newGameToolStripMenuItem_Click;
+            newGameToolStripMenuItem.Click += NewGameToolStripMenuItem_Click;
             // 
             // exitToolStripMenuItem
             // 
             exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             resources.ApplyResources(exitToolStripMenuItem, "exitToolStripMenuItem");
-            exitToolStripMenuItem.Click += exitToolStripMenuItem_Click;
+            exitToolStripMenuItem.Click += ExitToolStripMenuItem_Click;
             // 
             // timeToolStripMenuItem
             // 
@@ -216,21 +216,21 @@
             oneMinuteToolStripMenuItem.CheckState = CheckState.Checked;
             oneMinuteToolStripMenuItem.Name = "oneMinuteToolStripMenuItem";
             resources.ApplyResources(oneMinuteToolStripMenuItem, "oneMinuteToolStripMenuItem");
-            oneMinuteToolStripMenuItem.Click += oneMinuteToolStripMenuItem_Click;
+            oneMinuteToolStripMenuItem.Click += OneMinuteToolStripMenuItem_Click;
             // 
             // twoMinutesToolStripMenuItem
             // 
             twoMinutesToolStripMenuItem.CheckOnClick = true;
             twoMinutesToolStripMenuItem.Name = "twoMinutesToolStripMenuItem";
             resources.ApplyResources(twoMinutesToolStripMenuItem, "twoMinutesToolStripMenuItem");
-            twoMinutesToolStripMenuItem.Click += twoMinutesToolStripMenuItem_Click;
+            twoMinutesToolStripMenuItem.Click += TwoMinutesToolStripMenuItem_Click;
             // 
             // threeMinutesToolStripMenuItem
             // 
             threeMinutesToolStripMenuItem.CheckOnClick = true;
             threeMinutesToolStripMenuItem.Name = "threeMinutesToolStripMenuItem";
             resources.ApplyResources(threeMinutesToolStripMenuItem, "threeMinutesToolStripMenuItem");
-            threeMinutesToolStripMenuItem.Click += threeMinutesToolStripMenuItem_Click;
+            threeMinutesToolStripMenuItem.Click += ThreeMinutesToolStripMenuItem_Click;
             // 
             // scoreToolStripMenuItem
             // 
@@ -242,13 +242,13 @@
             // 
             scoreToolStripMenuItem1.Name = "scoreToolStripMenuItem1";
             resources.ApplyResources(scoreToolStripMenuItem1, "scoreToolStripMenuItem1");
-            scoreToolStripMenuItem1.Click += scoreToolStripMenuItem1_Click;
+            scoreToolStripMenuItem1.Click += ScoreToolStripMenuItem1_Click;
             // 
             // exportHighToolStripMenuItem
             // 
             exportHighToolStripMenuItem.Name = "exportHighToolStripMenuItem";
             resources.ApplyResources(exportHighToolStripMenuItem, "exportHighToolStripMenuItem");
-            exportHighToolStripMenuItem.Click += exportHighToolStripMenuItem_Click;
+            exportHighToolStripMenuItem.Click += ExportHighToolStripMenuItem_Click;
             // 
             // scoreLabel
             // 
@@ -258,7 +258,7 @@
             // gameTimer
             // 
             gameTimer.Interval = 1000;
-            gameTimer.Tick += gameTimer_Tick;
+            gameTimer.Tick += GameTimer_Tick;
             // 
             // gameForm
             // 

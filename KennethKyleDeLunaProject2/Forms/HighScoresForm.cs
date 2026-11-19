@@ -20,12 +20,12 @@ namespace KennethKyleDeLunaProject2.Forms
             RefreshGridByScore();
         }
 
-        private void scoreSortButton_Click(object sender, EventArgs e)
+        private void ScoreSortButton_Click(object sender, EventArgs e)
         {
             RefreshGridByScore();
         }
 
-        private void timeScoreSortButton_Click(object sender, EventArgs e)
+        private void TimeScoreSortButton_Click(object sender, EventArgs e)
         {
             RefreshGridByTimeAndScore();
         }
@@ -38,12 +38,12 @@ namespace KennethKyleDeLunaProject2.Forms
             highScoresGridView.Columns["DateAchieved"]?.HeaderText = "Date";
         }
 
-        private void boardResetButton_Click(object sender, EventArgs e)
+        private void BoardResetButton_Click(object sender, EventArgs e)
         {
             var result = MessageBox.Show("Are you sure you want to reset the high score board?", "Confirm Reset", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (result == DialogResult.Yes)
             {
-                _highScoreService.saveScores(new List<Model.HighScoreEntry>());
+                _highScoreService.SaveScores(new List<Model.HighScoreEntry>());
                 RefreshGridByScore();
             }
         }
@@ -64,7 +64,7 @@ namespace KennethKyleDeLunaProject2.Forms
             FormatColumns();
         }
 
-        private void closeButton_Click(object sender, EventArgs e)
+        private void CloseButton_Click(object sender, EventArgs e)
         {
             Close();
         }

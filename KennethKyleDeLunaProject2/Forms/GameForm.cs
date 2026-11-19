@@ -58,14 +58,14 @@ namespace KennethKyleDeLunaProject2
             }
         }
 
-        private string gameTimerFormat(int seconds)
+        private string GameTimerFormat(int seconds)
         {
             int mins = seconds / 60;
             int secs = seconds % 60;
             return $"{mins:D2}:{secs:D2}";
         }
 
-        private void gameTimer_Tick(object sender, EventArgs e)
+        private void GameTimer_Tick(object sender, EventArgs e)
         {
             if (!_isRoundActive)
             {
@@ -78,17 +78,17 @@ namespace KennethKyleDeLunaProject2
             if (_timeRemainingInSeconds <= 0)
             {
                 gameTimer.Stop();
-                endRound();
+                EndRound();
             }
         }
 
         private void UpdateTimerDisplay()
         {
-            timerLabel.Text = $"Time: {gameTimerFormat(_timeRemainingInSeconds)}";
+            timerLabel.Text = $"Time: {GameTimerFormat(_timeRemainingInSeconds)}";
             timerLabel.ForeColor = _timeRemainingInSeconds <= 10 ? Color.Red : Color.Black;
         }
 
-        private void startRound()
+        private void StartRound()
         {
             _isRoundActive = true;
             _currentLetters = _letterDraw.DrawLetters(7);
@@ -102,18 +102,18 @@ namespace KennethKyleDeLunaProject2
                 RoundMaxTimeSeconds = _gameTimeInSeconds
             };
             _timeRemainingInSeconds = _gameTimeInSeconds;
-            inputControlsActive(true);
-            refreshLetterButtons();
+            InputControlsActive(true);
+            RefreshLetterButtons();
             _isFirstClick = false;
             twistButton.Text = "TWIST!";
             gameTimer.Start();
         }
 
-        private void endRound()
+        private void EndRound()
         {
             gameTimer.Stop();
             _isRoundActive = false;
-            inputControlsActive(false);
+            InputControlsActive(false);
             if (_currentRound != null)
             {
                 _gameRounds.Add(_currentRound);
@@ -121,13 +121,13 @@ namespace KennethKyleDeLunaProject2
                 {
                     summaryForm.ShowDialog(this);
                 }
-                if (_highScoreService.qualifiesForHighScore(_currentRound.RoundScore))
+                if (_highScoreService.QualifiesForHighScore(_currentRound.RoundScore))
                 {
                     using (var highScoreForm = new HighScoreEntryForm())
                     {
                         if (highScoreForm.ShowDialog(this) == DialogResult.OK)
                         {
-                            _highScoreService.addHighScore(highScoreForm.PlayerName, _currentRound.RoundScore, _gameTimeInSeconds);
+                            _highScoreService.AddHighScore(highScoreForm.PlayerName, _currentRound.RoundScore, _gameTimeInSeconds);
                         }
                     }
                 }
@@ -137,7 +137,7 @@ namespace KennethKyleDeLunaProject2
 
         }
 
-        private void refreshLetterButtons()
+        private void RefreshLetterButtons()
         {
 
             for (int i = 0; i < _letterButtons.Count; i++)
@@ -186,7 +186,7 @@ namespace KennethKyleDeLunaProject2
                 }
 
                 wordTextBox.SelectionStart = wordTextBox.Text.Length;
-                refreshLetterButtons();
+                RefreshLetterButtons();
             }
             finally
             {
@@ -194,48 +194,48 @@ namespace KennethKyleDeLunaProject2
             }
         }
 
-        private void letterButton1_Click(object sender, EventArgs e)
+        private void LetterButton1_Click(object sender, EventArgs e)
         {
             HandleLetterClick(letterButton1);
         }
 
-        private void letterButton2_Click(object sender, EventArgs e)
+        private void LetterButton2_Click(object sender, EventArgs e)
         {
             HandleLetterClick(letterButton2);
         }
 
-        private void letterButton3_Click(object sender, EventArgs e)
+        private void LetterButton3_Click(object sender, EventArgs e)
         {
             HandleLetterClick(letterButton3);
         }
 
-        private void letterButton4_Click(object sender, EventArgs e)
+        private void LetterButton4_Click(object sender, EventArgs e)
         {
             HandleLetterClick(letterButton4);
         }
 
-        private void letterButton5_Click(object sender, EventArgs e)
+        private void LetterButton5_Click(object sender, EventArgs e)
         {
             HandleLetterClick(letterButton5);
         }
 
-        private void letterButton6_Click(object sender, EventArgs e)
+        private void LetterButton6_Click(object sender, EventArgs e)
         {
             HandleLetterClick(letterButton6);
         }
 
-        private void letterButton7_Click(object sender, EventArgs e)
+        private void LetterButton7_Click(object sender, EventArgs e)
         {
             HandleLetterClick(letterButton7);
         }
 
-        private void twistButton_Click(object sender, EventArgs e)
+        private void TwistButton_Click(object sender, EventArgs e)
         {
             if (_isFirstClick)
             {
                 _isFirstClick = false;
-                inputControlsActive(true);
-                startRound();
+                InputControlsActive(true);
+                StartRound();
             }
 
             List<LetterButton> selectedLetters = _letterButtons.Where(lb => lb.IsSelected).ToList();
@@ -254,20 +254,20 @@ namespace KennethKyleDeLunaProject2
                 }
             }
 
-            refreshLetterButtons();
+            RefreshLetterButtons();
         }
 
-        private void addButton_Click(object sender, EventArgs e)
+        private void AddButton_Click(object sender, EventArgs e)
         {
-            submitWordAttempt();
+            SubmitWordAttempt();
         }
 
-        private void clearButton_Click(object sender, EventArgs e)
+        private void ClearButton_Click(object sender, EventArgs e)
         {
-            clearTextBox();
+            ClearTextBox();
         }
 
-        private void inputControlsActive(bool isActive)
+        private void InputControlsActive(bool isActive)
         {
             foreach (var button in _uiButtons)
             {
@@ -277,45 +277,45 @@ namespace KennethKyleDeLunaProject2
             clearButton.Enabled = isActive;
         }
 
-        private void newGameToolStripMenuItem_Click(object sender, EventArgs e)
+        private void NewGameToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            startRound();
+            StartRound();
         }
 
-        private void clearTextBox()
+        private void ClearTextBox()
         {
             wordTextBox.Text = "";
             foreach (var letterObj in _letterButtons)
             {
                 letterObj.IsSelected = false;
             }
-            refreshLetterButtons();
+            RefreshLetterButtons();
         }
 
-        private void setTime(int seconds, ToolStripMenuItem menuItem)
+        private void SetTime(int seconds, ToolStripMenuItem menuItem)
         {
             _gameTimeInSeconds = seconds;
             oneMinuteToolStripMenuItem.Checked = (menuItem == oneMinuteToolStripMenuItem);
             twoMinutesToolStripMenuItem.Checked = (menuItem == twoMinutesToolStripMenuItem);
             threeMinutesToolStripMenuItem.Checked = (menuItem == threeMinutesToolStripMenuItem);
-            startRound();
+            StartRound();
         }
-        private void oneMinuteToolStripMenuItem_Click(object sender, EventArgs e)
+        private void OneMinuteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            setTime(60, oneMinuteToolStripMenuItem);
+            SetTime(60, oneMinuteToolStripMenuItem);
         }
 
-        private void twoMinutesToolStripMenuItem_Click(object sender, EventArgs e)
+        private void TwoMinutesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            setTime(120, twoMinutesToolStripMenuItem);
+            SetTime(120, twoMinutesToolStripMenuItem);
         }
 
-        private void threeMinutesToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ThreeMinutesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            setTime(180, threeMinutesToolStripMenuItem);
+            SetTime(180, threeMinutesToolStripMenuItem);
         }
 
-        private void wordTextBox_KeyPress(object? sender, KeyPressEventArgs e)
+        private void WordTextBox_KeyPress(object? sender, KeyPressEventArgs e)
         {
             if (char.IsControl(e.KeyChar) || char.IsDigit(e.KeyChar) || char.IsWhiteSpace(e.KeyChar))
             {
@@ -336,7 +336,7 @@ namespace KennethKyleDeLunaProject2
             }
         }
 
-        private void wordTextBox_Changed(object? sender, EventArgs e)
+        private void WordTextBox_Changed(object? sender, EventArgs e)
         {
             if (_isInputSynced) return;
 
@@ -371,7 +371,7 @@ namespace KennethKyleDeLunaProject2
                     return;
                 }
 
-                refreshLetterButtons();
+                RefreshLetterButtons();
 
             }
             finally
@@ -380,16 +380,16 @@ namespace KennethKyleDeLunaProject2
             }
         }
 
-        private void wordTextBox_KeyDown(object sender, KeyEventArgs e)
+        private void WordTextBox_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
                 e.SuppressKeyPress = true;
-                submitWordAttempt();
+                SubmitWordAttempt();
             }
         }
 
-        private bool canFormFromAvailableLetters(string word)
+        private bool CanFormFromAvailableLetters(string word)
         {
             List<char> availableLetters = _currentLetters.Select(c => char.ToUpperInvariant(c)).ToList();
             foreach (char ch in word.ToUpperInvariant())
@@ -402,30 +402,30 @@ namespace KennethKyleDeLunaProject2
             return true;
         }
 
-        private void submitWordAttempt()
+        private void SubmitWordAttempt()
         {
             string word = wordTextBox.Text.ToString().Trim();
-            string time = gameTimerFormat(_timeRemainingInSeconds);
+            string time = GameTimerFormat(_timeRemainingInSeconds);
             if (word.Length < 3)
             {
                 gamePointersLabel.Text = "Word must be at least 3 letters long.";
                 gamePointersLabel.ForeColor = Color.Red;
-                clearTextBox();
+                ClearTextBox();
                 return;
             }
 
-            if (!canFormFromAvailableLetters(word))
+            if (!CanFormFromAvailableLetters(word))
             {
                 gamePointersLabel.Text = "Word uses invalid or unavailable characters.";
                 gamePointersLabel.ForeColor = Color.Red;
                 _currentRound?.InvalidWords?.Add(new InvalidWordAttempt
                 {
                     Word = word,
-                    GameTimeAttempted = gameTimerFormat(_timeRemainingInSeconds),
+                    GameTimeAttempted = GameTimerFormat(_timeRemainingInSeconds),
                     RoundMaxTimeSeconds = _gameTimeInSeconds,
                     InvalidReason = "Word uses invalid or unavailable characters."
                 });
-                clearTextBox();
+                ClearTextBox();
                 return;
             }
 
@@ -436,11 +436,11 @@ namespace KennethKyleDeLunaProject2
                 _currentRound?.InvalidWords?.Add(new InvalidWordAttempt
                 {
                     Word = word,
-                    GameTimeAttempted = gameTimerFormat(_timeRemainingInSeconds),
+                    GameTimeAttempted = GameTimerFormat(_timeRemainingInSeconds),
                     RoundMaxTimeSeconds = _gameTimeInSeconds,
                     InvalidReason = "Word has already been submitted."
                 });
-                clearTextBox();
+                ClearTextBox();
                 return;
             }
 
@@ -451,11 +451,11 @@ namespace KennethKyleDeLunaProject2
                 _currentRound?.InvalidWords?.Add(new InvalidWordAttempt
                 {
                     Word = word,
-                    GameTimeAttempted = gameTimerFormat(_timeRemainingInSeconds),
+                    GameTimeAttempted = GameTimerFormat(_timeRemainingInSeconds),
                     RoundMaxTimeSeconds = _gameTimeInSeconds,
                     InvalidReason = "Word is invalid."
                 });
-                clearTextBox();
+                ClearTextBox();
                 return;
             }
 
@@ -463,19 +463,19 @@ namespace KennethKyleDeLunaProject2
             _currentRound?.ValidWords?.Add(new ValidWordAttempt
             {
                 Word = word,
-                GameTimeAttempted = gameTimerFormat(_timeRemainingInSeconds),
+                GameTimeAttempted = GameTimerFormat(_timeRemainingInSeconds),
                 RoundMaxTimeSeconds = _gameTimeInSeconds,
                 WordScore = score
             });
             _currentRound?.RoundScore += score;
-            validWordsListBox.Items.Add($"{word} - {score} points at {gameTimerFormat(_timeRemainingInSeconds)}");
+            validWordsListBox.Items.Add($"{word} - {score} points at {GameTimerFormat(_timeRemainingInSeconds)}");
             scoreLabel.Text = $"Score: {_currentRound?.RoundScore ?? 0}";
             gamePointersLabel.Text = $"'{word}' added for {score} points.";
             gamePointersLabel.ForeColor = Color.Green;
-            clearTextBox();
+            ClearTextBox();
         }
 
-        private void exportHighToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ExportHighToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (_gameRounds.Count == 0)
             {
@@ -502,7 +502,7 @@ namespace KennethKyleDeLunaProject2
             }
         }
 
-        private void scoreToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void ScoreToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             using (var hsForm = new HighScoresForm(_highScoreService))
             {
@@ -510,7 +510,7 @@ namespace KennethKyleDeLunaProject2
             }
         }
 
-        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }

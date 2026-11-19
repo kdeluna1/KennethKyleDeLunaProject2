@@ -70,7 +70,7 @@
             saveButton.TabIndex = 3;
             saveButton.Text = "Save";
             saveButton.UseVisualStyleBackColor = true;
-            saveButton.Click += saveButton_Click;
+            saveButton.Click += SaveButton_Click;
             // 
             // HighScoreEntryForm
             // 

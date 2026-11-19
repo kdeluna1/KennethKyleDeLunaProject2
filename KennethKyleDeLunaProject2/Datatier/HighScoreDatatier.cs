@@ -18,7 +18,7 @@ namespace KennethKyleDeLunaProject2.Datatier
             _filePath = filePath;
         }
 
-        public List<HighScoreEntry> loadScores()
+        public List<HighScoreEntry> LoadScores()
         {
             try
             {
@@ -36,19 +36,19 @@ namespace KennethKyleDeLunaProject2.Datatier
             }
         }
 
-        public void saveScores(List<HighScoreEntry> scores)
+        public void SaveScores(List<HighScoreEntry> scores)
         {
             var options = new JsonSerializerOptions { WriteIndented = true };
             string json = JsonSerializer.Serialize(scores, options);
             File.WriteAllText(_filePath, json);
         }
 
-        public bool qualifiesForHighScore(int score)
+        public bool QualifiesForHighScore(int score)
         {
             if (score <= 0){
                 return false;
             }
-            var scores = loadScores();
+            var scores = LoadScores();
             if (scores.Count < MaxHighScores)
             {
                 return true;
@@ -57,9 +57,9 @@ namespace KennethKyleDeLunaProject2.Datatier
             return score > scores.Min(s => s.Score);
         }
 
-        public void addHighScore(string playerName, int score, int maxTimeSeconds)
+        public void AddHighScore(string playerName, int score, int maxTimeSeconds)
         {
-            var scores = loadScores();
+            var scores = LoadScores();
             scores.Add(new HighScoreEntry
             {
                 PlayerName = playerName.Trim(),
@@ -70,19 +70,19 @@ namespace KennethKyleDeLunaProject2.Datatier
 
             scores = scores.OrderByDescending(s => s.Score).ThenBy(s => s.MaxTimeSeconds).Take(MaxHighScores).ToList();
 
-            saveScores(scores);
+            SaveScores(scores);
         }
 
         public List<HighScoreEntry> GetSortedByOverallScore()
         {
-            return loadScores()
+            return LoadScores()
                 .OrderByDescending(s => s.Score)
                 .ToList();
         }
 
         public List<HighScoreEntry> GetSortedByTimeAndScore()
         {
-            return loadScores()
+            return LoadScores()
                 .OrderBy(s => s.MaxTimeSeconds)
                 .ThenByDescending(s => s.Score)
                 .ToList();
@@ -90,7 +90,7 @@ namespace KennethKyleDeLunaProject2.Datatier
 
         public void ResetScores()
         {
-            saveScores(new List<HighScoreEntry>());
+            SaveScores(new List<HighScoreEntry>());
         }
     }
 }

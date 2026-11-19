@@ -30,7 +30,7 @@ namespace KennethKyleDeLunaProject2
             }
         }
 
-        private void continueButton_Click(object sender, EventArgs e)
+        private void ContinueButton_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.OK;
         }
