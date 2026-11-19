@@ -9,8 +9,15 @@ using System.Windows.Forms;
 
 namespace KennethKyleDeLunaProject2
 {
+    /// <summary>
+    /// Main class of round summary forms
+    /// </summary>
     public partial class RoundSummaryForm : Form
     {
+        /// <summary>
+        /// Creates an instance of a round summary form with the given game round attempt
+        /// </summary>
+        /// <param name="attempt"></param>
         public RoundSummaryForm(GameRound attempt)
         {
             InitializeComponent();

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace KennethKyleDeLunaProject2
 {
-    public partial class gameForm : Form
+    public partial class GameForm : Form
     {
         private readonly DictionaryLoader _dictionaryLoader = new DictionaryLoader();
         private readonly LetterDraw _letterDraw = new LetterDraw();
@@ -23,7 +23,13 @@ namespace KennethKyleDeLunaProject2
         private bool _isInputSynced = false;
         private class LetterButton
         {
+            /// <summary>
+            /// The char assigned to the button
+            /// </summary>
             public char Letter { get; set; }
+            /// <summary>
+            /// Determines whether the letter is selected or enttttered by the user
+            /// </summary>
             public bool IsSelected { get; set; }
         }
         private List<LetterButton> _letterButtons = new List<LetterButton>();
@@ -31,7 +37,10 @@ namespace KennethKyleDeLunaProject2
         private List<char> _currentLetters = new List<char>();
         private HighScoreDatatier _highScoreService = new HighScoreDatatier(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "highscores.json"));
 
-        public gameForm()
+        /// <summary>
+        /// Initializes a new instance of the GameForm window
+        /// </summary>
+        public GameForm()
         {
             InitializeComponent();
             LoadDictionary();

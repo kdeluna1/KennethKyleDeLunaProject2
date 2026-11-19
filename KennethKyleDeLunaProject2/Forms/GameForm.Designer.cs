@@ -1,6 +1,6 @@
 ﻿namespace KennethKyleDeLunaProject2
 {
-    partial class gameForm
+    partial class GameForm
     {
         /// <summary>
         ///  Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(gameForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GameForm));
             letterButton1 = new Button();
             lettersGroupBox = new GroupBox();
             twistButton = new Button();
@@ -260,7 +260,7 @@
             gameTimer.Interval = 1000;
             gameTimer.Tick += GameTimer_Tick;
             // 
-            // gameForm
+            // GameForm
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
@@ -274,7 +274,7 @@
             Controls.Add(lettersGroupBox);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
-            Name = "gameForm";
+            Name = "GameForm";
             lettersGroupBox.ResumeLayout(false);
             groupBox1.ResumeLayout(false);
             menuStrip1.ResumeLayout(false);

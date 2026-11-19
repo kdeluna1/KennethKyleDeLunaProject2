@@ -7,6 +7,12 @@ namespace KennethKyleDeLunaProject2.Datatier
 {
     public static class ScoresExporter
     {
+        /// <summary>
+        /// Exports game rounds into a json file at a chosen file path.
+        /// </summary>
+        /// <param name="filePath"></param>
+        /// <param name="gameRounds"></param>
+        /// <exception cref="ArgumentException"></exception>
         public static void ExportScoresToFile(string filePath, List<Model.GameRound> gameRounds)
         {
             if (string.IsNullOrWhiteSpace(filePath))

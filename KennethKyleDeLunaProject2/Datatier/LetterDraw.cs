@@ -18,6 +18,11 @@ namespace KennethKyleDeLunaProject2.Datatier
             { 'Z', 1 }
         };
 
+        /// <summary>
+        /// Draws letters based on their frequency
+        /// </summary>
+        /// <param name="count"></param>
+        /// <returns></returns>
         public List<char> DrawLetters(int count)
         {
             List<char> bag = new List<char>();

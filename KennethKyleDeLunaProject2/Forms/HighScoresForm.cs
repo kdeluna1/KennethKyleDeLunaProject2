@@ -9,10 +9,17 @@ using System.Windows.Forms;
 
 namespace KennethKyleDeLunaProject2.Forms
 {
+    /// <summary>
+    /// Main class of high score view form.
+    /// </summary>
     public partial class HighScoresForm : Form
     {
         private readonly HighScoreDatatier _highScoreService;
 
+        /// <summary>
+        /// Initializes a new high score form
+        /// </summary>
+        /// <param name="highScoreService"></param>
         public HighScoresForm(HighScoreDatatier highScoreService)
         {
             InitializeComponent();
