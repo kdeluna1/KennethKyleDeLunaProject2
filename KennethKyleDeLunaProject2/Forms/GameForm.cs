@@ -115,6 +115,8 @@ namespace KennethKyleDeLunaProject2
             RefreshLetterButtons();
             _isFirstClick = false;
             twistButton.Text = "TWIST!";
+            gamePointersLabel.Text = "Round started! Form words using the letters above.";
+            gamePointersLabel.ForeColor = Color.Black;
             gameTimer.Start();
         }
 
@@ -143,6 +145,7 @@ namespace KennethKyleDeLunaProject2
             }
 
             gamePointersLabel.Text = "Round over! Go to Game -> New Game to play again.";
+            gamePointersLabel.ForeColor = Color.Blue;
 
         }
 
