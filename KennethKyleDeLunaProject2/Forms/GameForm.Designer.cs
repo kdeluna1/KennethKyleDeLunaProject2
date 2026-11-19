@@ -57,7 +57,6 @@
             scoreToolStripMenuItem = new ToolStripMenuItem();
             scoreToolStripMenuItem1 = new ToolStripMenuItem();
             exportHighToolStripMenuItem = new ToolStripMenuItem();
-            exportScoresToolStripMenuItem = new ToolStripMenuItem();
             scoreLabel = new Label();
             gameTimer = new System.Windows.Forms.Timer(components);
             lettersGroupBox.SuspendLayout();
@@ -202,6 +201,7 @@
             // 
             exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             resources.ApplyResources(exitToolStripMenuItem, "exitToolStripMenuItem");
+            exitToolStripMenuItem.Click += exitToolStripMenuItem_Click;
             // 
             // timeToolStripMenuItem
             // 
@@ -234,7 +234,7 @@
             // 
             // scoreToolStripMenuItem
             // 
-            scoreToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { scoreToolStripMenuItem1, exportHighToolStripMenuItem, exportScoresToolStripMenuItem });
+            scoreToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { scoreToolStripMenuItem1, exportHighToolStripMenuItem });
             scoreToolStripMenuItem.Name = "scoreToolStripMenuItem";
             resources.ApplyResources(scoreToolStripMenuItem, "scoreToolStripMenuItem");
             // 
@@ -249,11 +249,6 @@
             exportHighToolStripMenuItem.Name = "exportHighToolStripMenuItem";
             resources.ApplyResources(exportHighToolStripMenuItem, "exportHighToolStripMenuItem");
             exportHighToolStripMenuItem.Click += exportHighToolStripMenuItem_Click;
-            // 
-            // exportScoresToolStripMenuItem
-            // 
-            exportScoresToolStripMenuItem.Name = "exportScoresToolStripMenuItem";
-            resources.ApplyResources(exportScoresToolStripMenuItem, "exportScoresToolStripMenuItem");
             // 
             // scoreLabel
             // 
@@ -316,7 +311,6 @@
         private ToolStripMenuItem scoreToolStripMenuItem;
         private ToolStripMenuItem scoreToolStripMenuItem1;
         private ToolStripMenuItem exportHighToolStripMenuItem;
-        private ToolStripMenuItem exportScoresToolStripMenuItem;
         private Label scoreLabel;
         private System.Windows.Forms.Timer gameTimer;
         private ToolStripMenuItem exitToolStripMenuItem;

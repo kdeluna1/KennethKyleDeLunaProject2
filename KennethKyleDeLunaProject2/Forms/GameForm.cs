@@ -20,6 +20,7 @@ namespace KennethKyleDeLunaProject2
         private int _timeRemainingInSeconds = 60;
         private bool _isRoundActive = false;
         private bool _isFirstClick = true;
+        private bool _isInputSynced = false;
         private class LetterButton
         {
             public char Letter { get; set; }
@@ -160,19 +161,36 @@ namespace KennethKyleDeLunaProject2
             if (!_isRoundActive) return;
 
             int index = _uiButtons.IndexOf(clickedButton);
-            if (index != -1 && index < _letterButtons.Count)
+            if (index == -1 || index >= _letterButtons.Count) return;
+
+            _isInputSynced = true;
+            try
             {
-                _letterButtons[index].IsSelected = !_letterButtons[index].IsSelected;
+                var tile = _letterButtons[index];
+                tile.IsSelected = !tile.IsSelected;
+
+                char letter = char.ToUpperInvariant(tile.Letter);
+                string currentText = wordTextBox.Text.ToUpperInvariant();
+
+                if (tile.IsSelected)
+                {
+                    wordTextBox.Text = currentText + letter;
+                }
+                else
+                {
+                    int lastPos = currentText.LastIndexOf(letter);
+                    if (lastPos >= 0)
+                    {
+                        wordTextBox.Text = currentText.Remove(lastPos, 1);
+                    }
+                }
+
+                wordTextBox.SelectionStart = wordTextBox.Text.Length;
                 refreshLetterButtons();
             }
-
-            if (_letterButtons[index].IsSelected)
+            finally
             {
-                wordTextBox.Text += _letterButtons[index].Letter;
-            }
-            else
-            {
-                wordTextBox.Text = wordTextBox.Text.Replace(_letterButtons[index].Letter.ToString(), "");
+                _isInputSynced = false;
             }
         }
 
@@ -320,35 +338,46 @@ namespace KennethKyleDeLunaProject2
 
         private void wordTextBox_Changed(object? sender, EventArgs e)
         {
-            foreach (var lb in _letterButtons)
+            if (_isInputSynced) return;
+
+            _isInputSynced = true;
+            try
             {
-                lb.IsSelected = false;
-            }
-
-            var validChars = new List<char>();
-
-            foreach (char ch in wordTextBox.Text.ToUpperInvariant())
-            {
-                var match = _letterButtons.FirstOrDefault(
-                    lb => char.ToUpperInvariant(lb.Letter) == ch && !lb.IsSelected);
-
-                if (match != null)
+                foreach (var lb in _letterButtons)
                 {
-                    match.IsSelected = true;
-                    validChars.Add(ch);
+                    lb.IsSelected = false;
                 }
-            }
 
-            string sanitized = new string(validChars.ToArray());
-            if (wordTextBox.Text != sanitized)
+                var validChars = new List<char>();
+
+                foreach (char ch in wordTextBox.Text.ToUpperInvariant())
+                {
+                    var match = _letterButtons.FirstOrDefault(
+                        lb => char.ToUpperInvariant(lb.Letter) == ch && !lb.IsSelected);
+
+                    if (match != null)
+                    {
+                        match.IsSelected = true;
+                        validChars.Add(ch);
+                    }
+                }
+
+                string sanitized = new string(validChars.ToArray());
+                if (wordTextBox.Text != sanitized)
+                {
+                    int cursor = wordTextBox.SelectionStart;
+                    wordTextBox.Text = sanitized;
+                    wordTextBox.SelectionStart = Math.Min(cursor, wordTextBox.Text.Length);
+                    return;
+                }
+
+                refreshLetterButtons();
+
+            }
+            finally
             {
-                int cursor = wordTextBox.SelectionStart;
-                wordTextBox.Text = sanitized;
-                wordTextBox.SelectionStart = Math.Min(cursor, wordTextBox.Text.Length);
-                return;
+                _isInputSynced = false;
             }
-
-            refreshLetterButtons();
         }
 
         private void wordTextBox_KeyDown(object sender, KeyEventArgs e)
@@ -479,6 +508,11 @@ namespace KennethKyleDeLunaProject2
             {
                 hsForm.ShowDialog(this);
             }
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
