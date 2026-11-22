@@ -7,17 +7,28 @@ using System.Text.Json;
 
 namespace KennethKyleDeLunaProject2.Datatier
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class HighScoreDatatier
     {
 
         private readonly string _filePath;
         private const int MaxHighScores = 10;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="filePath"></param>
         public HighScoreDatatier(string filePath = "highscores.json")
         {
             _filePath = filePath;
         }
 
+        /// <summary>
+        /// Loads scores from an existing hihsscores json file or creates an empty score list if none was found
+        /// </summary>
+        /// <returns></returns>
         public List<HighScoreEntry> LoadScores()
         {
             try
@@ -36,6 +47,10 @@ namespace KennethKyleDeLunaProject2.Datatier
             }
         }
 
+        /// <summary>
+        /// Saves the high score record
+        /// </summary>
+        /// <param name="scores"></param>
         public void SaveScores(List<HighScoreEntry> scores)
         {
             var options = new JsonSerializerOptions { WriteIndented = true };
@@ -43,6 +58,11 @@ namespace KennethKyleDeLunaProject2.Datatier
             File.WriteAllText(_filePath, json);
         }
 
+        /// <summary>
+        /// Checks if a round is valid to be placed as a high score record
+        /// </summary>
+        /// <param name="score"></param>
+        /// <returns></returns>
         public bool QualifiesForHighScore(int score)
         {
             if (score <= 0){
@@ -57,6 +77,12 @@ namespace KennethKyleDeLunaProject2.Datatier
             return score > scores.Min(s => s.Score);
         }
 
+        /// <summary>
+        /// Adds the high score to the json file
+        /// </summary>
+        /// <param name="playerName"></param>
+        /// <param name="score"></param>
+        /// <param name="maxTimeSeconds"></param>
         public void AddHighScore(string playerName, int score, int maxTimeSeconds)
         {
             var scores = LoadScores();
@@ -73,6 +99,10 @@ namespace KennethKyleDeLunaProject2.Datatier
             SaveScores(scores);
         }
 
+        /// <summary>
+        /// Sorts the high scores by their overall points earned
+        /// </summary>
+        /// <returns></returns>
         public List<HighScoreEntry> GetSortedByOverallScore()
         {
             return LoadScores()
@@ -80,6 +110,10 @@ namespace KennethKyleDeLunaProject2.Datatier
                 .ToList();
         }
 
+        /// <summary>
+        /// Sorts the high scores by their time and then score descending
+        /// </summary>
+        /// <returns></returns>
         public List<HighScoreEntry> GetSortedByTimeAndScore()
         {
             return LoadScores()
@@ -88,6 +122,9 @@ namespace KennethKyleDeLunaProject2.Datatier
                 .ToList();
         }
 
+        /// <summary>
+        /// Resets the high score list
+        /// </summary>
         public void ResetScores()
         {
             SaveScores(new List<HighScoreEntry>());
